@@ -443,7 +443,129 @@ button {
   transform: scale(1.05);
 }
 
+.brand-carousel {
+  padding: 4rem 2rem;
+  background-color: #fdfdfd;
+  overflow: hidden;
+}
+
+.carousel-track-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+}
+
+.carousel-item {
+  flex: 0 0 25%; /* 4 logos visible */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.brand-logo {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(0.2);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.brand-logo:hover {
+  transform: scale(1.1);
+  filter: grayscale(0);
+}
+
 /* Responsive */
+@media (max-width: 900px) {
+  .carousel-item {
+    flex: 0 0 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel-item {
+    flex: 0 0 80%;
+  }
+}
+
+
+
+
+
+
+
+
+.footer {
+  background-color: #FF5500; /* brand orange */
+  color: #fff;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.footer-contacts {
+  margin-bottom: 2rem;
+}
+
+.footer-contacts h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.footer-contacts ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-contacts li {
+  margin-bottom: 0.8rem;
+  font-size: 1.4rem;
+}
+
+.footer-contacts a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-contacts a:hover {
+  color: #ffe5d6; /* light orange hover effect */
+}
+
+.footer-copy {
+  font-size: 1.2rem;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .footer {
+    padding: 3rem 1.5rem;
+  }
+  .footer-contacts h3 {
+    font-size: 1.8rem;
+  }
+  .footer-contacts li {
+    font-size: 1.2rem;
+  }
+  .footer-copy {
+    font-size: 1rem;
+  }
+}
+
+
+
 @media (max-width: 1024px) {
   .carousel-item {
     flex: 0 0 30%;

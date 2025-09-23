@@ -4,6 +4,8 @@ import Hero from "../components/Hero";
 import About from "../components/About";
 import Fragrance from "../components/Fragrance";
 import Perfume from "../components/Perfume";
+import Footer from "../components/Footer";
+import BrandCarousel from "../components/BrandsCarousel";
 
 function Home() {
     return(
@@ -13,6 +15,8 @@ function Home() {
             <About />
             <Fragrance />
             <Perfume />
+            <BrandCarousel />
+            <Footer />
         </div>
     )
 }
