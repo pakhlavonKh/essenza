@@ -1,0 +1,501 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: #ffffff;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  /* overflow-x: hidden; */
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 4rem;
+  height: 8rem;
+  background-color: rgba(255, 85, 0, 1);
+  color: #fff;
+}
+
+.header img {
+  height: 5rem;
+  width: auto;
+}
+
+.header nav {
+  display: flex;
+  gap: 5rem;
+}
+
+.header nav a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 2rem;
+  position: relative;
+  opacity: 0.9;
+  color: #fff; 
+  transition: opacity 0.3s ease, border-bottom 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.header nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background-color: white; 
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.header nav a:hover::after {
+  width: 100%;
+}
+
+.header nav a:hover {
+  opacity: 1; 
+}
+
+.lang-switcher {
+  position: relative;
+  width: 4rem;
+}
+
+.lang-button {
+  background-color: #fff; 
+  color: #FF5500; 
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.lang-button:hover {
+  background-color: #f5f5f5;
+  color: #e14d00; 
+}
+
+.lang-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  list-style: none;
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 100%;
+  z-index: 100;
+}
+
+.lang-option {
+  width: 100%;
+  text-align: center;
+  background: none;
+  border: none;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  font-weight: 500;
+  color: #000;
+  transition: background-color 0.2s ease;
+}
+
+.lang-option:hover {
+  background-color: #f5f5f5;
+}
+
+.lang-option.active {
+  color: #FF5500; 
+  font-weight: 700;
+}
+.hero {
+  display: grid;
+  grid-template-columns: 12rem 1fr 3fr; /* contacts | bottle | background */
+  height: calc(100vh - 8rem);
+  width: 100%;
+}
+
+/* Left column - Contacts */
+.contacts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  gap: 2rem;
+  padding: 3rem;
+  background: #FF5500;
+}
+.contacts a {
+  color: white;
+  font-weight: 600;
+  font-size: 2rem;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-decoration: none;
+}
+
+/* Middle column - Bottle carousel */
+.bottle-carousel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  background: #f9f9f9;
+  overflow: hidden;
+}
+
+.bottle-slide {
+  position: absolute;
+  opacity: 0;
+  transform: translateX(5rem);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.bottle-slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  position: relative;
+}
+
+.bottle-img {
+  height: 35rem;
+  width: 27rem;
+  object-fit:cover;
+}
+
+.bottle-title {
+  margin-top: 20px;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.arrows {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+}
+.arrows button {
+  border: 2px solid #000;
+  padding: 10px 15px;
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+}
+.arrows button:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* Right column - Background carousel */
+.bg-carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.bg-slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  max-width: 40rem;
+  color: white;
+}
+
+.overlay h3 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.overlay p {
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+.about {
+  padding: 6rem 2rem; /* vertical + horizontal spacing */
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center; /* center titles and text */
+  background-color: #f9f9f9; /* light background */
+  color: #111; /* text color */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.about h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.about p {
+  font-size: 1.6rem;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto 3rem auto; /* center the paragraph and add bottom spacing */
+}
+
+.about ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.about ul li {
+  font-size: 1.6rem;
+  font-weight: 500;
+  position: relative;
+  padding-left: 2rem;
+}
+
+/* Custom bullet */
+.about ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #FF5500; /* highlight color */
+  font-weight: bold;
+}
+
+/* FragranceSection.css */
+.fragrance-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #fdfdfd;
+}
+
+.fragrance-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.fragrance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.fragrance-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fragrance-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1rem;
+  object-fit: contain;
+}
+
+.perfume-carousel {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #fdfdfd;
+}
+
+.perfume-carousel h2 {
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+  color: #111;
+  font-weight: 700;
+}
+
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.carousel-btn {
+  padding: 1rem 1.5rem;
+  font-size: 2rem;
+  border: none;
+  background: none;
+  color: #FF5500;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.carousel-btn:hover {
+  transform: scale(1.2);
+  color: #e14d00;
+}
+
+.carousel-track-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+}
+
+.carousel-item {
+  flex: 0 0 25%; /* 4 items visible */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.perfume-img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.perfume-img:hover {
+  transform: scale(1.05);
+}
+
+.perfume-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111;
+  text-align: center;
+}
+
+.more-btn {
+  margin-top: 2.5rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #FF5500;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.more-btn:hover {
+  background-color: #e14d00;
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .carousel-item {
+    flex: 0 0 30%;
+  }
+}
+
+@media (max-width: 900px) {
+  .carousel-item {
+    flex: 0 0 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel-item {
+    flex: 0 0 80%;
+  }
+  .carousel-wrapper {
+    gap: 0.8rem;
+  }
+}
+
+
+@media (max-width: 900px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .contacts {
+    flex-direction: row;
+    justify-content: center;
+    writing-mode: horizontal-tb;
+    transform: none;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .bottle-carousel {
+    width: 100%;
+    order: 2;
+    padding: 20px;
+  }
+
+  .bg-carousel {
+    width: 100%;
+    height: 50vh;
+    order: 3;
+  }
+
+  .overlay {
+    bottom: 10%;
+    left: 5%;
+  }
+}
