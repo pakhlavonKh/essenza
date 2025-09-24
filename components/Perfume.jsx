@@ -2,14 +2,14 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const perfumes = [
-  { id: 1, name: 'Rose Elegance', image: '/images/rose-elegance.jpg' },
-  { id: 2, name: 'Citrus Bloom', image: '/images/citrus-bloom.jpg' },
-  { id: 3, name: 'Vanilla Dream', image: '/images/vanilla-dream.jpg' },
-  { id: 4, name: 'Ocean Mist', image: '/images/ocean-mist.jpg' },
-  { id: 5, name: 'Amber Night', image: '/images/amber-night.jpg' },
-  { id: 6, name: 'Jasmine Whisper', image: '/images/jasmine-whisper.jpg' },
-  { id: 7, name: 'Sandalwood Spirit', image: '/images/sandalwood-spirit.jpg' },
-  { id: 8, name: 'Lavender Fields', image: '/images/lavender-fields.jpg' },
+  { id: 1, name: 'Rose Elegance', image: '../public/assets/cellImage_0_2.png' },
+  { id: 2, name: 'Citrus Bloom', image: '../public/assets/cellImage_0_3.png' },
+  { id: 3, name: 'Vanilla Dream', image: '../public/assets/cellImage_0_4.png' },
+  { id: 4, name: 'Amber Night', image: '../public/assets/cellImage_0_5.png' },
+  { id: 5, name: 'Jasmine Whisper', image: '../public/assets/cellImage_0_6.png' },
+  { id: 6, name: 'Sandalwood Spirit', image: '../public/assets/cellImage_0_7.png' },
+  { id: 7, name: 'Lavender Fields', image: '../public/assets/cellImage_0_8.png' },
+  { id: 8, name: 'Ocean Mist', image: '../public/assets/cellImage_0_9.png' },
 ];
 
 const visibleCount = 4;

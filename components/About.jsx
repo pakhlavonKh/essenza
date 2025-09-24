@@ -11,14 +11,16 @@ const About = () => (
         <div className="about-text">
             <h2>About Us</h2>
             <p>
-                Essenza is dedicated to delivering high-quality solutions tailored to your needs.
-                Our team combines expertise and passion to help you achieve your goals.
+                Мы — официальный дистрибьютор французской компании Argeville в Узбекистане.
+                Наша специализация — оптовые и крупнооптовые поставки высококачественных масляных духов и амбровой базы.
+
+                Благодаря прямому сотрудничеству с производителем во Франции, мы гарантируем:
+                • подлинность и премиальное качество продукции,
+                • выгодные условия для партнёров,
+                • стабильные поставки и профессиональный сервис.
+
+                Мы работаем для того, чтобы парфюмерные бренды и производители в Узбекистане могли создавать ароматы мирового уровня.
             </p>
-            <ul>
-                <li>Experienced professionals</li>
-                <li>Customer-focused approach</li>
-                <li>Innovative solutions</li>
-            </ul>
         </div>
           <div className="composition">
             <img

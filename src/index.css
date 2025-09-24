@@ -90,7 +90,9 @@ button {
 
 .lang-switcher {
   position: relative;
-  width: 4rem;
+  width: 20rem;
+  height: 3rem;
+  
 }
 
 .lang-button {
@@ -98,9 +100,11 @@ button {
   color: var(--color-primary); 
   border: none;
   padding: 0.5rem 1rem;
+  position: absolute;
+  right: 0;
   font-weight: 600;
   cursor: pointer;
-  width: 100%;
+  width: 4rem;
   border-radius: 6px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -121,7 +125,7 @@ button {
   list-style: none;
   padding: 0.5rem 0;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  width: 100%;
+  width: 4rem;
   z-index: 100;
 }
 
@@ -147,7 +151,7 @@ button {
 }
 .hero {
   display: grid;
-  grid-template-columns: 12rem 1fr 3fr; /* contacts | bottle | background */
+  grid-template-columns: 12rem 1fr 3fr; 
   height: calc(100vh - 8rem);
   width: 100%;
 }
@@ -190,6 +194,7 @@ button {
   transition: opacity 0.6s ease, transform 0.6s ease;
   text-align: center;
   width: 100%;
+  margin: 0 auto;
   justify-content: center;
 }
 
@@ -200,8 +205,8 @@ button {
 }
 
 .bottle-img {
-  height: 35rem;
-  width: 27rem;
+  height: 28rem;
+  width: 20rem;
   object-fit:cover;
 }
 
@@ -372,7 +377,6 @@ button {
 }
 
 
-/* FragranceSection.css */
 .fragrance-section {
   text-align: center;
   padding: 4rem 2rem;
@@ -380,7 +384,7 @@ button {
 }
 
 .fragrance-section h2 {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   margin-bottom: 3rem;
 }
 
@@ -407,11 +411,11 @@ button {
 .perfume-carousel {
   text-align: center;
   padding: 4rem 2rem;
-  background-color: #fdfdfd;
+  background-color: #f9f9f9;
 }
 
 .perfume-carousel h2 {
-  font-size: 2.8rem;
+  font-size: 3.5rem;
   margin-bottom: 3rem;
   color: #111;
   font-weight: 700;
@@ -453,22 +457,20 @@ button {
 }
 
 .carousel-item {
-  flex: 0 0 25%; /* 4 items visible */
+  flex: 0 0 25%; 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   padding: 1rem;
   box-sizing: border-box;
 }
 
 .perfume-img {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 16px;
+  width: 16rem;
+  height: 16rem;
+  object-fit: contain;
   margin-bottom: 1rem;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
   transition: transform 0.3s ease;
 }
 
@@ -504,6 +506,9 @@ button {
   padding: 4rem 2rem;
   background-color: #fdfdfd;
   overflow: hidden;
+  max-width: 120rem;
+  min-height: 12rem;
+  margin: 0 auto;
 }
 
 .carousel-track-wrapper {
@@ -515,17 +520,8 @@ button {
   display: flex;
 }
 
-.carousel-item {
-  flex: 0 0 25%; /* 4 logos visible */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  box-sizing: border-box;
-}
-
 .brand-logo {
-  width: 120px;
+  width: 12rem;
   height: auto;
   object-fit: contain;
   filter: grayscale(0.2);
