@@ -8,7 +8,7 @@ function Header() {
 
     return (
         <header className="header">
-            <img src="../public/assets/logo.jpg" alt="logo" />
+            <img src="../public/assets/essenza_white.png" alt="logo" />
             <nav className="">
                 <a href="">{t("home")}</a>
                 <a href="">{t("catalog")}</a>
