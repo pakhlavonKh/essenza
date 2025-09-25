@@ -9,7 +9,7 @@
   line-height: 1.5;
   font-weight: 400;
   background-color: #ffffff;
-  --color-primary:#A67C52;  
+  --color-primary:#F87500;  
 }
 
 html {
@@ -23,7 +23,6 @@ html {
 body {
   min-width: 100vw;
   min-height: 100vh;
-  /* overflow-x: hidden; */
 }
 
 a {
@@ -389,23 +388,40 @@ button {
 }
 
 .fragrance-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 2rem;
-  justify-items: center;
+  display: flex;          
+  max-width: 120rem;  
+  margin: 0 auto;
+  padding: 0 10rem;
+  flex-direction: row;
+  gap: 6rem;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .fragrance-item {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 20rem;
+}
+
+.fragrance-item h3 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+.fragrance-item p {
+  font-size: 2.1rem;
+  color: #555;
+  line-height: 1.5;
 }
 
 .fragrance-icon {
-  width: 80px;
-  height: 80px;
+  width: 10rem;
+  height: 10rem;
+  fill: var(--color-primary);
   margin-bottom: 1rem;
-  object-fit: contain;
 }
 
 .perfume-carousel {
@@ -621,15 +637,89 @@ button {
   font-size: 1.8rem;
   color: var(--color-muted);
   margin-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
   padding: 2rem 0;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
+}
+
+
+@media (max-width: 1024px) {
+  .carousel-item {
+    flex: 0 0 30%;
+  }
+
+  .composition {
+    width: 80%;
+    margin: 2rem auto;
+  }
+
+  .composition__photo {
+    width: 60%;
+  }
+
+  .fragrance-grid {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column;
+    padding: 3rem 1.5rem;
+  }
+
+  .about-text {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .fragrance-grid {
+    flex-direction: column;
+    gap: 3rem;
+    width: 100%;
+    padding: 0 2rem;
+  }
+
+  .fragrance-item {
+    width: 70%;
+  }
+
+  .fragrance-icon {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  .carousel-item {
+    flex: 0 0 50%;
+  }
+
+  .perfume-img {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  .brand-logo {
+    width: 8rem;
+  }
+
   .footer {
     flex-direction: column;
-    align-items: center; /* center items when stacked */
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1rem 0 1rem;
+  }
+
+  .footer-copy {
+    font-size: 1.4rem;
+    padding: 1rem 0;
+  }
+  .footer {
+    flex-direction: column;
+    align-items: center; 
     text-align: center;
   }
 
@@ -639,34 +729,8 @@ button {
   }
 
   .footer-map iframe {
-    height: 200px;
+    height: 20rem;
   }
-}
-
-
-@media (max-width: 1024px) {
-  .carousel-item {
-    flex: 0 0 30%;
-  }
-}
-
-@media (max-width: 900px) {
-  .carousel-item {
-    flex: 0 0 45%;
-  }
-}
-
-@media (max-width: 600px) {
-  .carousel-item {
-    flex: 0 0 80%;
-  }
-  .carousel-wrapper {
-    gap: 0.8rem;
-  }
-}
-
-
-@media (max-width: 900px) {
   .hero {
     display: flex;
     flex-direction: column;
@@ -697,5 +761,69 @@ button {
   .overlay {
     bottom: 10%;
     left: 5%;
+  }
+  .carousel-item {
+    flex: 0 0 80%;
+  }
+  .carousel-wrapper {
+    gap: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 1rem;
+    height: auto;
+  }
+
+  .header nav {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .hero {
+    flex-direction: column;
+  }
+
+  .contacts {
+    writing-mode: horizontal-tb;
+    transform: none;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+    padding: 1rem 0;
+  }
+
+  .bottle-carousel,
+  .bg-carousel {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .overlay {
+    bottom: 5%;
+    left: 5%;
+    max-width: 90%;
+  }
+
+  .composition {
+    width: 90%;
+    height: auto;
+    margin: 2rem auto;
+  }
+
+  .composition__photo {
+    width: 70%;
+    height: auto;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+  }
+
+  .carousel-item {
+    flex: 0 0 100%;
   }
 }
