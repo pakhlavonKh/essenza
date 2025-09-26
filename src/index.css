@@ -46,12 +46,83 @@ button {
   color: #fff;
 }
 
+.navigation__checkbox {
+  display: none;
+}
+
+.navigation__button {
+  border: none;
+  display: none;
+  border-radius: 0;
+  background-color: transparent;
+  height: 4.5rem;
+  width: 4.5rem;
+  position: fixed;
+  border-radius: 50%;
+  top: 2rem;
+  left: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2000;
+}
+
+.navigation__icon {
+  position: relative;
+  margin-top: 3.5rem;
+}
+
+.navigation__icon, .navigation__icon::before, .navigation__icon::after {
+  width: 4.5rem;
+  height: 2px;
+  background-color: #fff;
+  display: inline-block;
+}
+
+.navigation__icon::before, .navigation__icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  transition: all 0.2s;
+}
+
+.navigation__icon::before {
+  top: -1.2rem;
+}
+
+.navigation__icon::after {
+  top: 1.2rem;
+}
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon {
+  background-color: transparent;
+}
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon::before {
+  top: 0;
+  transform: rotate(135deg);
+}
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon::after {
+  top: 0;
+  transform: rotate(-135deg);
+}
+
+  .header.open {
+    height: 100vh;
+    transition: height 0.4s ease;
+  }
+  
+.mobile-menu {
+  display: none;
+}
+
+
 .header img {
   height: 3.5rem;
   width: auto;
 }
 
-.header nav {
+.navigation {
   display: flex;
   gap: 5rem;
 }
@@ -155,13 +226,12 @@ button {
   width: 100%;
 }
 
-/* Left column - Contacts */
 .contacts {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: end;
-  gap: 2rem;
+  gap: 5rem;
   padding: 3rem;
   background: var(--color-primary);
 }
@@ -170,18 +240,15 @@ button {
   font-weight: 600;
   font-size: 2rem;
   writing-mode: vertical-rl;
-  transform: rotate(180deg);
   text-decoration: none;
 }
-
-/* Middle column - Bottle carousel */
 .bottle-carousel {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 4rem 2rem;
+  /* padding: auto 2rem; */
   background: #f9f9f9;
   overflow: hidden;
 }
@@ -216,20 +283,23 @@ button {
 }
 
 .arrows {
-  display: flex;
-  gap: 20px;
-  margin-top: 30px;
+  display: none;
+  /* display: flex; */
+  gap: 2rem;
+  margin-top: 5rem;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-primary);
 }
 .arrows button {
-  border: 2px solid #000;
-  padding: 10px 15px;
-  font-size: 20px;
+  border: 2px solid #fff;
+  padding: 1rem 1.5rem;
+  font-size: 2rem;
+  color: #fff;
   cursor: pointer;
   background: none;
-}
-.arrows button:hover {
-  background: #000;
-  color: #fff;
 }
 
 /* Right column - Background carousel */
@@ -384,7 +454,7 @@ button {
 
 .fragrance-section h2 {
   font-size: 3.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 4.5rem;
 }
 
 .fragrance-grid {
@@ -426,13 +496,13 @@ button {
 
 .perfume-carousel {
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 6rem 2rem;
   background-color: #f9f9f9;
 }
 
 .perfume-carousel h2 {
   font-size: 3.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 4.5rem;
   color: #111;
   font-weight: 700;
 }
@@ -450,7 +520,7 @@ button {
 
 .carousel-btn {
   padding: 1rem 1.5rem;
-  font-size: 2rem;
+  font-size: 3.2rem;
   border: none;
   background: none;
   color: var(--color-primary);
@@ -502,12 +572,12 @@ button {
 }
 
 .more-btn {
-  margin-top: 2.5rem;
-  padding: 0.8rem 1.5rem;
+  margin-top: 3.5rem;
+  padding: 1rem 1.5rem;
   background-color: var(--color-primary);
   color: #fff;
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 2rem;
   border-radius: 12px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -519,7 +589,7 @@ button {
 }
 
 .brand-carousel {
-  padding: 4rem 2rem;
+  padding: 6rem 2rem;
   background-color: #fdfdfd;
   overflow: hidden;
   max-width: 120rem;
@@ -548,24 +618,6 @@ button {
   transform: scale(1.1);
   filter: grayscale(0);
 }
-
-/* Responsive */
-@media (max-width: 900px) {
-  .carousel-item {
-    flex: 0 0 50%;
-  }
-}
-
-@media (max-width: 600px) {
-  .carousel-item {
-    flex: 0 0 80%;
-  }
-}
-
-
-
-
-
 
 .footer {
   background: var(--color-primary);
@@ -630,7 +682,6 @@ button {
   color: var(--color-muted);
 }
 
-/* Copy */
 .footer-copy {
   width: 100%;
   text-align: center;
@@ -640,11 +691,6 @@ button {
   border-top: 2px solid rgba(255, 255, 255, 0.1);
   padding: 2rem 0;
 }
-
-/* Responsive */
-@media (max-width: 768px) {
-}
-
 
 @media (max-width: 1024px) {
   .carousel-item {
@@ -666,6 +712,149 @@ button {
 }
 
 @media (max-width: 768px) {
+  /* Header container reset */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8rem;
+    padding: 1rem 2rem;
+    z-index: 1500;
+    background-color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Logo always fixed top-left */
+  .header img {
+    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
+    height: 3.5rem;
+    z-index: 2001;
+  }
+
+  /* Show hamburger top-right */
+  .navigation__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 1.5rem;
+    right: 1.5rem;
+    left: auto;
+    position: fixed;
+    z-index: 2001;
+    background-color: var(--color-primary);
+  }
+
+  .navigation__checkbox {
+    display: block;
+    position: absolute;
+    opacity: 0;
+    z-index: 2002;
+  }
+
+  
+  .navigation,
+  .lang-switcher {
+    display: none;
+  }
+  
+  .mobile-menu {
+    display: flex;
+    position: absolute;
+    top: 12rem;
+    left: -100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    transition: transform 0.4s ease;
+    padding: 2rem 0;
+  }
+  
+  .navigation__checkbox:checked ~ .mobile-menu {
+    transform: translateX(100%);
+  }
+
+  .mobile-navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8rem;
+  }
+
+  .header .mobile-navigation a {
+    font-size: 3rem;
+  }
+  
+  .navigation__checkbox:checked ~ .mobile-menu .mobile-lang-switcher {
+    display: flex;
+  }
+.mobile-lang-switcher {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;     /* center vertically if needed */
+  width: 5.7rem;
+  margin-top: 2rem;        /* optional spacing from menu items */
+}
+
+.mobile-lang-switcher .lang-button {
+  position: relative;       /* remove absolute positioning */
+  right: auto;              /* reset right */
+  width: auto;              /* adjust width if needed */
+  font-size: 2.5rem;
+  border-radius: 1rem;
+}
+
+.mobile-lang-switcher .lang-menu {
+  margin-top: 1rem;
+  width: 5.7rem;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+}
+
+.mobile-lang-switcher .lang-option {
+  font-size: 2.5rem;
+}
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .contacts {
+    display: none;
+  }
+
+  .bottle-carousel {
+    display: none;
+  }
+
+  .bg-carousel {
+    width: 100%;
+    height: calc(100vh - 8rem);
+    margin-top: 8rem;
+    order: 3;
+  }
+
+  .overlay {
+    bottom: 10%;
+    left: 5%;
+  }
+  .carousel-item {
+    flex: 0 0 80%;
+  }
+  .carousel-wrapper {
+    gap: 0.8rem;
+  }
+
   .about {
     flex-direction: column;
     padding: 3rem 1.5rem;
@@ -674,7 +863,35 @@ button {
   .about-text {
     width: 100%;
     padding: 0;
+    height: auto;
     text-align: center;
+  }
+
+  .composition {
+    height: 14rem;
+  }
+  .composition__photo {
+    float: left;
+    position: relative;
+    width: 33.33333333%;
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2);
+  }
+
+  .composition__photo--p1 {
+    top: 0;
+    transform: scale(1.2);
+  }
+
+  .composition__photo--p2 {
+    top: -1rem;
+    transform: scale(1.3);
+    z-index: 100;
+  }
+
+  .composition__photo--p3 {
+    top: 1rem;
+    left: 0;
+    transform: scale(1.1);
   }
 
   .fragrance-grid {
@@ -730,100 +947,5 @@ button {
 
   .footer-map iframe {
     height: 20rem;
-  }
-  .hero {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-  }
-
-  .contacts {
-    flex-direction: row;
-    justify-content: center;
-    writing-mode: horizontal-tb;
-    transform: none;
-    width: 100%;
-    gap: 10px;
-  }
-
-  .bottle-carousel {
-    width: 100%;
-    order: 2;
-    padding: 20px;
-  }
-
-  .bg-carousel {
-    width: 100%;
-    height: 50vh;
-    order: 3;
-  }
-
-  .overlay {
-    bottom: 10%;
-    left: 5%;
-  }
-  .carousel-item {
-    flex: 0 0 80%;
-  }
-  .carousel-wrapper {
-    gap: 0.8rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1rem 1rem;
-    height: auto;
-  }
-
-  .header nav {
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-  }
-
-  .hero {
-    flex-direction: column;
-  }
-
-  .contacts {
-    writing-mode: horizontal-tb;
-    transform: none;
-    flex-direction: row;
-    justify-content: center;
-    gap: 5px;
-    padding: 1rem 0;
-  }
-
-  .bottle-carousel,
-  .bg-carousel {
-    width: 100%;
-    padding: 1rem;
-  }
-
-  .overlay {
-    bottom: 5%;
-    left: 5%;
-    max-width: 90%;
-  }
-
-  .composition {
-    width: 90%;
-    height: auto;
-    margin: 2rem auto;
-  }
-
-  .composition__photo {
-    width: 70%;
-    height: auto;
-    top: 0 !important;
-    left: 50% !important;
-    transform: translateX(-50%);
-  }
-
-  .carousel-item {
-    flex: 0 0 100%;
   }
 }

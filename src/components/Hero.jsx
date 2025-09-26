@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faTelegram, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 const slides = [
   {
@@ -51,15 +54,21 @@ function Hero() {
 
   return (
     <section className="hero">
-      {/* Left column: contacts */}
       <div className="contacts">
-        <a href="#">fb</a>
-        <a href="#">ig</a>
-        <a href="#">tg</a>
-        <a href="#">ph</a>
+        <a href="tel:+1234567890">
+          <FontAwesomeIcon icon={faPhone} />
+        </a>
+        <a href="mailto:info@example.com">
+          <FontAwesomeIcon icon={faEnvelope} /> 
+        </a>
+        <a href="https://t.me/yourusername" target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faTelegram} /> 
+        </a>
+        <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faInstagram} /> 
+        </a>
       </div>
 
-      {/* Middle column: Bottle carousel */}
       <div className="bottle-carousel">
         {slides.map((slide, index) => (
           <div

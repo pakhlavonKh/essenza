@@ -26,7 +26,7 @@ const fragrances = [
 const FragranceSection = () => {
   return (
     <section className="fragrance-section">
-      <h2>Our Fragrances</h2>
+      <h2>Fragrances</h2>
       <div className="fragrance-grid">
         {fragrances.map((item, index) => (
           <div className="fragrance-item" key={index}>

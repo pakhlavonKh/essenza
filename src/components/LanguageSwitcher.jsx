@@ -23,29 +23,16 @@ export default function LanguageSwitcher({ className = "" }) {
   const [lang, setLang] = useState(getInitialLang);
   const switcherRef = useRef(null);
 
+  const current = LANGS.find((l) => l.code === lang);
+
   useEffect(() => {
     i18next.changeLanguage(lang);
     localStorage.setItem("app.lang", lang);
-    const meta = LANGS.find((l) => l.code === lang);
     document.documentElement.setAttribute("lang", lang);
-    document.documentElement.setAttribute("dir", meta?.dir || "ltr");
-  }, [lang]);
+    document.documentElement.setAttribute("dir", current?.dir || "ltr");
+  }, [lang, current]);
 
-  useEffect(() => {
-    const handleKey = (e) => {
-      if (e.altKey && e.key.toLowerCase() === "l") {
-        e.preventDefault();
-        setOpen((o) => !o);
-      }
-      if (e.altKey && /^[1-9]$/.test(e.key)) {
-        const idx = parseInt(e.key, 10) - 1;
-        if (LANGS[idx]) setLang(LANGS[idx].code);
-      }
-    };
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, []);
-
+  // Close dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (switcherRef.current && !switcherRef.current.contains(e.target)) {
@@ -61,8 +48,6 @@ export default function LanguageSwitcher({ className = "" }) {
       document.removeEventListener("touchstart", handleClickOutside);
     };
   }, [open]);
-
-  const current = LANGS.find((l) => l.code === lang);
 
   return (
     <div className={`lang-switcher ${className}`} ref={switcherRef}>
