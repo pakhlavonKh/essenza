@@ -629,7 +629,7 @@ button {
   max-width: 30rem;
   padding: 0.8rem 1.2rem;
   border: 1px solid #ccc;
-  border-radius: 0.6rem;
+  border-radius: 1.5rem;
   font-size: 1rem;
   outline: none;
   transition: all 0.2s;
@@ -1005,9 +1005,13 @@ button {
     width: 8rem;
   }
 
+  .catalog-search {
+    margin-top: 12rem;
+  }
+
   .catalog-items {
     grid-template-columns: repeat(2, 1fr); /* single column */
-    padding: 8rem 2rem 2rem 2rem;
+    padding: 2rem;
     gap: 1rem;
   }
 
