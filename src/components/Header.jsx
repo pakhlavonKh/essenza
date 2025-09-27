@@ -42,7 +42,7 @@ function Header() {
             {t("contact")}
           </HashLink>
         </nav>
-        <LanguageSwitcher className="mobile-lang-switcher" />
+        <LanguageSwitcher className="mobile-lang-switcher" onLangChange={() => setIsOpen(false)}/>
       </div>
 
       {/* Desktop Navigation */}

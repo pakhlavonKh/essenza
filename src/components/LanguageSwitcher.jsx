@@ -18,7 +18,7 @@ function getInitialLang() {
   return "en";
 }
 
-export default function LanguageSwitcher({ className = "" }) {
+export default function LanguageSwitcher({ className = "", onLangChange }) {
   const [open, setOpen] = useState(false);
   const [lang, setLang] = useState(getInitialLang);
   const switcherRef = useRef(null);
@@ -30,7 +30,8 @@ export default function LanguageSwitcher({ className = "" }) {
     localStorage.setItem("app.lang", lang);
     document.documentElement.setAttribute("lang", lang);
     document.documentElement.setAttribute("dir", current?.dir || "ltr");
-  }, [lang, current]);
+    
+  }, [lang, current, onLangChange]);
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -55,22 +56,23 @@ export default function LanguageSwitcher({ className = "" }) {
         {current?.native}
       </button>
       {open && (
-        <ul className="lang-menu">
-          {LANGS.filter((l) => l.code !== lang).map((l) => (
-            <li key={l.code}>
-              <button
-                className="lang-option"
-                onClick={() => {
-                  setLang(l.code);
-                  setOpen(false);
-                }}
-              >
-                {l.native}
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
+  <ul className="lang-menu">
+    {LANGS.filter((l) => l.code !== lang).map((l) => (
+      <li key={l.code}>
+        <button
+          className="lang-option"
+          onClick={() => {
+            setLang(l.code);     // change language
+            setOpen(false);      // close dropdown
+            if (onLangChange) onLangChange(); // close mobile menu immediately
+          }}
+        >
+          {l.native}
+        </button>
+      </li>
+    ))}
+  </ul>
+)}
     </div>
   );
 }
