@@ -107,7 +107,7 @@ button {
 }
 
   .header.open {
-    height: 200vh;
+    height: 100dvh;
     transition: height 0.4s ease;
   }
   
@@ -618,6 +618,28 @@ button {
   filter: grayscale(0);
 }
 
+.catalog-search {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.catalog-search input {
+  width: 100%;
+  max-width: 30rem;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 0.6rem;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.catalog-search input:focus {
+  border-color: var(--color-primary, #f87500);
+  box-shadow: 0 0 0 3px rgba(248, 117, 0, 0.2);
+}
+
 .catalog-items {
   display: grid;
   grid-template-columns: repeat(4, minmax(25rem, 1fr));
@@ -656,7 +678,7 @@ button {
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  margin-top: 3rem;
+  margin: 3rem auto;
 }
 
 .catalog-pagination button {
