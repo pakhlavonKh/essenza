@@ -7,7 +7,7 @@ const compositionImages = [
 ];
 
 const About = () => (
-    <section className="about">
+    <section className="about" id="about">
         <div className="about-text">
             <h2>About Us</h2>
             <p>

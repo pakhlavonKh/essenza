@@ -68,12 +68,11 @@ button {
 
 .navigation__icon {
   position: relative;
-  margin-top: 3.5rem;
 }
 
 .navigation__icon, .navigation__icon::before, .navigation__icon::after {
   width: 4.5rem;
-  height: 2px;
+  height: 3px;
   background-color: #fff;
   display: inline-block;
 }
@@ -619,6 +618,41 @@ button {
   filter: grayscale(0);
 }
 
+.catalog-items {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(25rem, 1fr));
+  gap: 1.5rem;
+  padding: 5rem 15rem;
+}
+
+.catalog-item {
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.catalog-item:hover {
+  transform: translateY(-5px);
+}
+
+.catalog-image {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  padding: 1rem;
+}
+
+.catalog-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #444;
+  padding: 0.5rem 0 1rem;
+}
+
+
 .footer {
   background: var(--color-primary);
   color: #fff;
@@ -712,7 +746,6 @@ button {
 }
 
 @media (max-width: 768px) {
-  /* Header container reset */
   .header {
     position: fixed;
     top: 0;
@@ -727,10 +760,9 @@ button {
     justify-content: space-between;
   }
 
-  /* Logo always fixed top-left */
   .header img {
     position: fixed;
-    top: 1.5rem;
+    top: 2rem;
     left: 1.5rem;
     height: 3.5rem;
     z-index: 2001;
@@ -934,18 +966,18 @@ button {
     font-size: 1.4rem;
     padding: 1rem 0;
   }
-  .footer {
-    flex-direction: column;
-    align-items: center; 
-    text-align: center;
-  }
 
   .footer-contacts,
   .footer-map {
     max-width: 90%;
   }
 
+  .footer-map{
+    flex: 1 1 32rem;
+  }
+
   .footer-map iframe {
     height: 20rem;
+    border-radius: 1rem;
   }
 }

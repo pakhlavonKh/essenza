@@ -4,7 +4,7 @@ import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faTelegram, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => (
-    <footer className="footer">
+    <footer className="footer" id="contact">
         <div className="footer-contacts">
             <h3>Contact Us</h3>
             <ul>

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link"; // 👈 import
 import LanguageSwitcher from "./LanguageSwitcher";
 
 function Header() {
@@ -8,41 +10,50 @@ function Header() {
 
   return (
     <header className={`header ${isOpen ? "open" : ""}`}>
-        <input
-            type="checkbox"
-            id="nav-toggle"
-            className="navigation__checkbox"
-            checked={isOpen}
-            onChange={() => setIsOpen((v) => !v)}
-        />
-        <label
-            htmlFor="nav-toggle"
-            className="navigation__button"
-            aria-label="Toggle menu"
-        >
-            <span className="navigation__icon" />
-        </label>
+      <input
+        type="checkbox"
+        id="nav-toggle"
+        className="navigation__checkbox"
+        checked={isOpen}
+        onChange={() => setIsOpen((v) => !v)}
+      />
+      <label
+        htmlFor="nav-toggle"
+        className="navigation__button"
+        aria-label="Toggle menu"
+      >
+        <span className="navigation__icon" />
+      </label>
 
+      {/* Logo */}
+      <Link to="/" className="header-logo-link">
         <img src="/assets/essenza_white.png" alt="logo" className="header-logo" />
-        <div class="mobile-menu">
-            <nav class="mobile-navigation">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Products</a>
-            <a href="#">Contact</a>
-            </nav>
+      </Link>
 
-            <LanguageSwitcher className="mobile-lang-switcher" />
-        </div>
-        {/* Navigation */}
-        <nav className={`navigation`}>
-            <a href="/">{t("home")}</a>
-            <a href="/catalog">{t("catalog")}</a>
-            <a href="/about">{t("about")}</a>
-            <a href="/contact">{t("contact")}</a>
+      {/* Mobile Menu */}
+      <div className="mobile-menu">
+        <nav className="mobile-navigation">
+          <Link to="/" onClick={() => setIsOpen(false)}>{t("home")}</Link>
+          <HashLink smooth to="/#about" onClick={() => setIsOpen(false)}>
+            {t("about")}
+          </HashLink>
+          <Link to="/catalog" onClick={() => setIsOpen(false)}>{t("catalog")}</Link>
+          <HashLink smooth to="/#contact" onClick={() => setIsOpen(false)}>
+            {t("contact")}
+          </HashLink>
         </nav>
+        <LanguageSwitcher className="mobile-lang-switcher" />
+      </div>
 
-        <LanguageSwitcher />
+      {/* Desktop Navigation */}
+      <nav className="navigation">
+        <Link to="/">{t("home")}</Link>
+        <HashLink smooth to="/#about">{t("about")}</HashLink>
+        <Link to="/catalog">{t("catalog")}</Link>
+        <HashLink smooth to="/#contact">{t("contact")}</HashLink>
+      </nav>
+
+      <LanguageSwitcher />
     </header>
   );
 }
