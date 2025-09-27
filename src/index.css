@@ -107,7 +107,7 @@ button {
 }
 
   .header.open {
-    height: 100vh;
+    height: 200vh;
     transition: height 0.4s ease;
   }
   
@@ -651,6 +651,34 @@ button {
   color: #444;
   padding: 0.5rem 0 1rem;
 }
+.catalog-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.catalog-pagination button {
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  background-color: var(--color-primary);
+  color: #fff;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.catalog-pagination button:hover:not(:disabled) {
+  background-color: #e14d00;
+  transform: scale(1.05);
+}
+
+.catalog-pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
 
 
 .footer {
@@ -953,6 +981,16 @@ button {
 
   .brand-logo {
     width: 8rem;
+  }
+
+  .catalog-items {
+    grid-template-columns: repeat(2, 1fr); /* single column */
+    padding: 8rem 2rem 2rem 2rem;
+    gap: 1rem;
+  }
+
+  .catalog-item {
+    width: 100%;
   }
 
   .footer {
