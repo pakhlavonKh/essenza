@@ -49,7 +49,9 @@ function Header() {
   };
 
   return (
-    <header className={`header ${isOpen ? "open" : ""}`}>
+    
+<>
+      <div className={`mobile-menu ${isOpen ? "open" : ""}`}>
       <input
         type="checkbox"
         id="nav-toggle"
@@ -64,16 +66,7 @@ function Header() {
       >
         <span className="navigation__icon" />
       </label>
-
-      <Link to="/" className="header-logo-link">
-        <img
-          src="/assets/essenza_white.png"
-          alt="logo"
-          className="header-logo"
-        />
-      </Link>
-
-      <div className="mobile-menu">
+      <div className="navigation__background">&nbsp;</div>
         <nav className="mobile-navigation">
           <Link to="/" onClick={() => setIsOpen(false)}>
             {t("home")}
@@ -87,12 +80,21 @@ function Header() {
           <a href="#contact" onClick={() => setIsOpen(false)}>
             {t("contact")}
           </a>
-        </nav>
         <LanguageSwitcher
           className="mobile-lang-switcher"
           onLangChange={() => setIsOpen(false)}
         />
+        </nav>
       </div>
+    <header className={`header ${isOpen ? "open" : ""}`}>
+
+      <Link to="/" className="header-logo-link">
+        <img
+          src="/assets/essenza_white.png"
+          alt="logo"
+          className="header-logo"
+        />
+      </Link>
 
       <nav className={`navigation ${isFixed ? 'fixed' : ""}`}>
         <Link to="/">{t("home")}</Link>
@@ -107,6 +109,8 @@ function Header() {
 
       <LanguageSwitcher />
     </header>
+
+    </>
   );
 }
 
