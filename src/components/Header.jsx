@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { HashLink } from "react-router-hash-link"; // 👈 import
 import LanguageSwitcher from "./LanguageSwitcher";
 
 function Header() {
@@ -25,32 +24,40 @@ function Header() {
         <span className="navigation__icon" />
       </label>
 
-      {/* Logo */}
       <Link to="/" className="header-logo-link">
-        <img src="/assets/essenza_white.png" alt="logo" className="header-logo" />
+        <img
+          src="/assets/essenza_white.png"
+          alt="logo"
+          className="header-logo"
+        />
       </Link>
 
-      {/* Mobile Menu */}
       <div className="mobile-menu">
         <nav className="mobile-navigation">
-          <Link to="/" onClick={() => setIsOpen(false)}>{t("home")}</Link>
-          <HashLink smooth to="/#about" onClick={() => setIsOpen(false)}>
+          <Link to="/" onClick={() => setIsOpen(false)}>
+            {t("home")}
+          </Link>
+          <Link to="/catalog" onClick={() => setIsOpen(false)}>
+            {t("catalog")}
+          </Link>
+          <a href="/#about" onClick={() => setIsOpen(false)}>
             {t("about")}
-          </HashLink>
-          <Link to="/catalog" onClick={() => setIsOpen(false)}>{t("catalog")}</Link>
-          <HashLink smooth to="/#contact" onClick={() => setIsOpen(false)}>
+          </a>
+          <a href="/#contact" onClick={() => setIsOpen(false)}>
             {t("contact")}
-          </HashLink>
+          </a>
         </nav>
-        <LanguageSwitcher className="mobile-lang-switcher" onLangChange={() => setIsOpen(false)}/>
+        <LanguageSwitcher
+          className="mobile-lang-switcher"
+          onLangChange={() => setIsOpen(false)}
+        />
       </div>
 
-      {/* Desktop Navigation */}
       <nav className="navigation">
         <Link to="/">{t("home")}</Link>
-        <HashLink smooth to="/#about">{t("about")}</HashLink>
         <Link to="/catalog">{t("catalog")}</Link>
-        <HashLink smooth to="/#contact">{t("contact")}</HashLink>
+        <a href="/#about">{t("about")}</a>
+        <a href="/#contact">{t("contact")}</a>
       </nav>
 
       <LanguageSwitcher />

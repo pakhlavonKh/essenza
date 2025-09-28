@@ -1,8 +1,10 @@
 // CatalogItems.js
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import catalogData from "./CatalogData";
 
 const CatalogItems = ({ itemsPerPage = 12 }) => {
+  const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -45,32 +47,31 @@ const CatalogItems = ({ itemsPerPage = 12 }) => {
             <img src={item.img} alt={item.name} className="catalog-image" />
             <h3 className="catalog-brand">{item.brand}</h3>
             <h4 className="catalog-label">{item.name}</h4>
-            <p className="catalog-description">{item.description}</p>
+            <p className="catalog-description">{t("quality")}: {item.description}</p>
           </div>
         ))}
 
         {filteredItems.length === 0 && (
-          <p className="no-results">No items found.</p>
+          <p className="no-results">{t("not-found")}</p>
         )}
       </div>
 
-      {/* Pagination */}
       {filteredItems.length > 0 && (
         <div className="catalog-pagination">
           <button
             onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
             disabled={currentPage === 1}
           >
-            Prev
+            {t("Prev")}
           </button>
           <span>
-            Page {currentPage} of {totalPages}
+            {t("Page")} {currentPage} of {totalPages}
           </span>
           <button
             onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
             disabled={currentPage === totalPages}
           >
-            Next
+            {t("Next")}
           </button>
         </div>
       )}
