@@ -25,13 +25,14 @@ export default function LanguageSwitcher({ className = "", onLangChange }) {
 
   const current = LANGS.find((l) => l.code === lang);
 
+  // Fix: only depend on 'lang' to avoid infinite loop
   useEffect(() => {
+    const current = LANGS.find((l) => l.code === lang);
     i18next.changeLanguage(lang);
     localStorage.setItem("app.lang", lang);
     document.documentElement.setAttribute("lang", lang);
     document.documentElement.setAttribute("dir", current?.dir || "ltr");
-    
-  }, [lang, current, onLangChange]);
+  }, [lang]);
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -40,10 +41,12 @@ export default function LanguageSwitcher({ className = "", onLangChange }) {
         setOpen(false);
       }
     };
+
     if (open) {
       document.addEventListener("mousedown", handleClickOutside);
       document.addEventListener("touchstart", handleClickOutside);
     }
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("touchstart", handleClickOutside);
@@ -55,24 +58,25 @@ export default function LanguageSwitcher({ className = "", onLangChange }) {
       <button className="lang-button" onClick={() => setOpen((o) => !o)}>
         {current?.native}
       </button>
+
       {open && (
-  <ul className="lang-menu">
-    {LANGS.filter((l) => l.code !== lang).map((l) => (
-      <li key={l.code}>
-        <button
-          className="lang-option"
-          onClick={() => {
-            setLang(l.code);     // change language
-            setOpen(false);      // close dropdown
-            if (onLangChange) onLangChange(); // close mobile menu immediately
-          }}
-        >
-          {l.native}
-        </button>
-      </li>
-    ))}
-  </ul>
-)}
+        <ul className="lang-menu">
+          {LANGS.filter((l) => l.code !== lang).map((l) => (
+            <li key={l.code}>
+              <button
+                className="lang-option"
+                onClick={() => {
+                  setLang(l.code);        // change language
+                  setOpen(false);         // close dropdown
+                  if (onLangChange) onLangChange(); // optional callback
+                }}
+              >
+                {l.native}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
