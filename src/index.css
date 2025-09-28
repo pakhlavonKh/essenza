@@ -106,10 +106,10 @@ button {
   transform: rotate(-135deg);
 }
 
-  .header.open {
-    height: 100dvh;
-    transition: height 0.4s ease;
-  }
+.header.open {
+  height: 100svh;
+  transition: height 0.4s ease;
+}
   
 .mobile-menu {
   display: none;
