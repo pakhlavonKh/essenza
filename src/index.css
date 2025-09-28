@@ -109,7 +109,7 @@ button {
 
 .header.open {
   height: calc(var(--vh) * 1000);
-  min-height: 100dvh;
+  min-height: 1000dvh;
   transition: height 0.4s ease;
 }
   
