@@ -1,4 +1,5 @@
 import React from 'react';
+import { useInView } from "./UserInView";
 
 const compositionImages = [
   '../assets/bottle1.jpg',
@@ -6,8 +7,11 @@ const compositionImages = [
   '../assets/bottle1.jpg'
 ];
 
-const About = () => (
-    <section className="about" id="about">
+const About = () => {
+  const [ref, inView] = useInView({ threshold: 0.4 });
+
+  return (
+    <section ref={ref} className={`about fade-up ${inView ? "show" : ""}`} id="about">
         <div className="about-text">
             <h2>About Us</h2>
             <p>
@@ -44,6 +48,7 @@ const About = () => (
 
           </div>
     </section>
-);
+  );
+};
 
 export default About;

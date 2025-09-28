@@ -1,12 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 function Header() {
   const { t } = useTranslation();
+  const [isFixed, setIsFixed] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      console.log("Scroll event fired, scrollY:", scrollY);
+      const hero = document.querySelector(".hero");
+      if (!hero) {
+        setIsFixed(scrollY > 100);
+        return;
+      }
+      const rect = hero.getBoundingClientRect();
+      console.log("Hero - top:", rect.top, "bottom:", rect.bottom, "height:", rect.height);
+      setIsFixed(rect.bottom <= 0);
+    };
+
+    console.log("Adding scroll event listener");
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); 
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   // Helper to go to section
   const goToSection = (id) => {
@@ -71,7 +94,7 @@ function Header() {
         />
       </div>
 
-      <nav className="navigation">
+      <nav className={`navigation ${isFixed ? 'fixed' : ""}`}>
         <Link to="/">{t("home")}</Link>
         <Link to="/catalog">{t("catalog")}</Link>
         <a onClick={() => goToSection("about")}>

@@ -18,12 +18,14 @@ html {
   font-size: 62.5%;
   width: 100%;
   height: 100%;
+  height: -webkit-fill-available;
   overflow-x: hidden;
 }
 
 body {
   min-width: 100vw;
   min-height: 100vh;
+  min-height: -webkit-fill-available;
 }
 
 a {
@@ -126,6 +128,19 @@ button {
 .navigation {
   display: flex;
   gap: 5rem;
+}
+
+.navigation.fixed {
+  position: fixed;
+  top: 0;     
+  left: 0; 
+  opacity: 0.8;
+  width: 100vw;
+  padding: 1rem;
+  background-color: var(--color-primary);
+  justify-content: center;
+  z-index: 1000;
+  transition: all 0.4s ease;
 }
 
 .header nav a {
@@ -461,10 +476,9 @@ button {
 
 .fragrance-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(25rem, 1fr));          
-  max-width: 120rem;  
+  grid-template-columns: repeat(4, minmax(20rem, 1fr));          
+  max-width: 100rem;  
   margin: 0 auto;
-  padding: 0 10rem;
   flex-direction: row;
   gap: 6rem;
   align-items: center;
@@ -700,12 +714,17 @@ button {
   margin: 3rem auto;
 }
 
+.catalog-pagination span {
+  font-size: 1.8rem;
+  color: #333;
+}
+
 .catalog-pagination button {
   padding: 0.5rem 1rem;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   background-color: var(--color-primary);
   color: #fff;
-  border-radius: 0.6rem;
+  border-radius: 1.2rem;
   cursor: pointer;
   border: none;
   transition: background-color 0.3s, transform 0.2s;
@@ -1084,4 +1103,75 @@ button {
     height: 20rem;
     border-radius: 1rem;
   }
+}
+
+/* Mobile landscape */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .hero {
+    flex-direction: row; /* restore row layout */
+    height: calc(100vh - 8rem);
+  }
+
+  .about {
+    flex-direction: row; /* horizontal layout */
+    padding: 2rem 3rem;
+    text-align: left;
+    height: 50rem;
+  }
+
+  .composition {
+    width: 50%;
+    margin: auto 0;
+  }
+
+  .about-text {
+    width: 50%;
+    padding: 0 2rem;
+  }
+
+  .fragrance-grid {
+    grid-template-columns: repeat(2, 1fr); /* more columns in landscape */
+    gap: 2rem;
+  }
+
+  .fragrance-item {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .carousel-item {
+    flex: 0 0 33.3333%; /* show more items in carousel */
+  }
+
+  .perfume-img {
+    width: 18rem;
+    height: 18rem;
+  }
+
+  .mobile-menu {
+    top: 8rem; /* adjust menu position */
+  }
+}
+
+
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fade-up.show {
+  animation: fadeUp 0.6s ease-out 0.3s forwards;
 }
