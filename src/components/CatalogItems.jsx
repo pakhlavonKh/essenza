@@ -1,4 +1,3 @@
-// CatalogItems.js
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import catalogData from "./CatalogData";
@@ -8,7 +7,6 @@ const CatalogItems = ({ itemsPerPage = 12 }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Filtered items based on search
   const filteredItems = catalogData.filter(
     (item) =>
       item.brand.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -16,13 +14,11 @@ const CatalogItems = ({ itemsPerPage = 12 }) => {
       item.description.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Pagination logic works on filtered data
   const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentItems = filteredItems.slice(startIndex, endIndex);
 
-  // Reset to page 1 if search term changes
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
     setCurrentPage(1);
@@ -30,24 +26,22 @@ const CatalogItems = ({ itemsPerPage = 12 }) => {
 
   return (
     <div>
-      {/* Search Bar */}
       <div className="catalog-search">
         <input
           type="text"
-          placeholder="Search by brand, name, or description..."
+          placeholder={t("catalog.searchPlaceholder")}
           value={searchTerm}
           onChange={handleSearch}
         />
       </div>
 
-      {/* Catalog Items */}
       <div className="catalog-items">
         {currentItems.map((item, index) => (
           <div key={index} className="catalog-item">
             <img src={item.img} alt={item.name} className="catalog-image" />
             <h3 className="catalog-brand">{item.brand}</h3>
             <h4 className="catalog-label">{item.name}</h4>
-            <p className="catalog-description">{t("quality")}: {item.description}</p>
+            <p className="catalog-description">{t("catalog.qualityLabel")}: {item.description}</p>
           </div>
         ))}
 
@@ -62,16 +56,16 @@ const CatalogItems = ({ itemsPerPage = 12 }) => {
             onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
             disabled={currentPage === 1}
           >
-            {t("Prev")}
+            {t("pagination.prev")}
           </button>
           <span>
-            {t("Page")} {currentPage} of {totalPages}
+            {t("pagination.pageInfo", { current: currentPage, total: totalPages })}
           </span>
           <button
             onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
             disabled={currentPage === totalPages}
           >
-            {t("Next")}
+            {t("pagination.next")}
           </button>
         </div>
       )}

@@ -1,6 +1,92 @@
 {
-    "home": "home",
-    "about": "about",
-    "catalog": "catalog",
-    "contact": "contact"
+  "home": "Home",
+  "aboutUs": "About Us",
+  "catalogNav": "Catalog",
+  "contact": "Contact",
+  "hero": {
+    "slides": {
+      "1": {
+        "title": "Premium Perfume Wholesale",
+        "subtitle": "Direct supply from European manufacturers. Wide selection, transparent terms and reliable delivery across Uzbekistan."
+      },
+      "2": {
+        "title": "Exclusive Collections",
+        "subtitle": "Fragrances that highlight the uniqueness of your business."
+      },
+      "3": {
+        "title": "Trusted Partner",
+        "subtitle": "High-quality products and support for wholesale buyers."
+      },
+      "4": {
+        "title": "Premium Quality",
+        "subtitle": "Building trust and reputation for your brand."
+      }
+    }
+  },
+
+  "about": {
+    "title": "About Us",
+    "paragraph1": "We are the official distributor of the French company Argeville in Uzbekistan. Our expertise lies in wholesale and large-scale supply of high-quality oil perfumes and amber bases.",
+    "paragraph2": "Through direct cooperation with the manufacturer in France, we guarantee authenticity and premium product quality, competitive terms for partners, reliable deliveries, and professional service."
+  },
+
+  "fragrance": {
+    "title": "Fragrances",
+    "items": {
+      "1": {
+        "name": "Fruit Fragrances",
+        "description": "Sweet, juicy, and playful with notes of fresh fruits."
+      },
+      "2": {
+        "name": "Spice Fragrances",
+        "description": "Warm, bold, and exotic with rich spice accords."
+      },
+      "3": {
+        "name": "Flower Fragrances",
+        "description": "Romantic and elegant with delicate floral notes."
+      },
+      "4": {
+        "name": "Citrus Fragrances",
+        "description": "Bright, fresh, and uplifting with zesty citrus."
+      }
+    }
+  },
+
+  "perfume": {
+    "title": "Available Perfumes",
+    "moreBtn": "More"
+  },
+
+  "catalog": {
+    "searchPlaceholder": "Search by brand, name, or description...",
+    "qualityLabel": "Quality",
+    "notFound": "No results found",
+    "quality": {
+      "Deluxe": "Deluxe",
+      "Standard": "Standard",
+      "Top": "Premium"
+    }
+  },
+
+  "pagination": {
+    "prev": "Prev",
+    "next": "Next",
+    "page": "Page",
+    "pageInfo": "{{current}} of {{total}}",
+    "of": "of"
+  },
+  
+  "footer": {
+    "contactTitle": "Contact Us",
+    "email": "essenzaperfumes17@gmail.com",
+    "phone": "+998 (90) 352 59 59",
+    "telegramEssenza": "Telegram Essenza",
+    "telegramArgeville": "Telegram Argeville",
+    "instagram": "Instagram",
+    "locationTitle": "Location",
+    "address": "Essenza Parfumes, 10A Zargarlik street",
+    "rights": "All rights reserved"
+  }
+
+
 }

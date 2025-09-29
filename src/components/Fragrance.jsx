@@ -1,35 +1,37 @@
 import React from "react";
 import { useInView } from "./UserInView";
+import { useTranslation } from 'react-i18next';
 
-const fragrances = [
+const FragranceSection = () => {
+  const [ref, inView] = useInView({ threshold: 0.4 });
+  const { t } = useTranslation();
+
+  const fragrances = [
   {
-    name: "Fruit fragrance",
-    description: "Sweet, juicy, and playful with notes of fresh fruits.",
+    name: t("fragrance.items.1.name"),
+    description: t("fragrance.items.1.description"),
     image: "../assets/fruit-fr.svg",
   },
   {
-    name: "Spice fragrance",
-    description: "Warm, bold, and exotic with rich spice accords.",
+    name: t("fragrance.items.2.name"),
+    description: t("fragrance.items.2.description"),
     image: "../assets/spice-fr.svg",
   },
   {
-    name: "Flower fragrance",
-    description: "Romantic and elegant with flower notes.",
+    name: t("fragrance.items.3.name"),
+    description: t("fragrance.items.3.description"),
     image: "../assets/flower-fr.svg",
   },
   {
-    name: "Citrus fragrance",
-    description: "Bright, fresh, and uplifting with zesty citrus.",
+    name: t("fragrance.items.4.name"),
+    description: t("fragrance.items.4.description"),
     image: "./assets/citrus-fr.svg",
   },
 ];
 
-const FragranceSection = () => {
-  const [ref, inView] = useInView({ threshold: 0.4 });
-
   return (
     <section className="fragrance-section">
-      <h2>Fragrances</h2>
+      <h2>{t("fragrance.title")}</h2>
       <div ref={ref} className={`fragrance-grid fade-up ${inView ? "show" : ""}`} >
         {fragrances.map((item, index) => (
           <div className="fragrance-item" key={index}>

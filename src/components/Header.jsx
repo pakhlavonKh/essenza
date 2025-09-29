@@ -31,19 +31,16 @@ function Header() {
     };
   }, []);
 
-  // Helper to go to section
   const goToSection = (id) => {
     if (window.location.pathname === "/") {
-      // Already on home → scroll directly
       const el = document.getElementById(id);
       el?.scrollIntoView({ behavior: "smooth" });
     } else {
-      // Navigate to home first, then scroll after short delay
       navigate("/"); 
       setTimeout(() => {
         const el = document.getElementById(id);
         el?.scrollIntoView({ behavior: "smooth" });
-      }, 100); // small delay to let route change
+      }, 100); 
     }
     setIsOpen(false);
   };
@@ -72,10 +69,10 @@ function Header() {
             {t("home")}
           </Link>
           <Link to="/catalog" onClick={() => setIsOpen(false)}>
-            {t("catalog")}
+            {t("catalogNav")}
           </Link>
           <a onClick={() => goToSection("about")}>
-            {t("about")}
+            {t("aboutUs")}
           </a>
           <a href="#contact" onClick={() => setIsOpen(false)}>
             {t("contact")}
@@ -98,9 +95,9 @@ function Header() {
 
       <nav className={`navigation ${isFixed ? 'fixed' : ""}`}>
         <Link to="/">{t("home")}</Link>
-        <Link to="/catalog">{t("catalog")}</Link>
+        <Link to="/catalog">{t("catalogNav")}</Link>
         <a onClick={() => goToSection("about")}>
-          {t("about")}
+          {t("aboutUs")}
         </a>
         <a href="#contact">
           {t("contact")}

@@ -1,68 +1,67 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faTelegram, faInstagram } from "@fortawesome/free-brands-svg-icons";
-
-const slides = [
-  {
-    id: 1,
-    bg: "../assets/bg1.jpg",
-    bgMobile: "../assets/bg1-mobile.jpeg", // 👈 mobile version
-    bottle: "../assets/cellImage_0_2.png",
-    title: "Luxury Perfume",
-    subtitle: "Discover your signature scent",
-  },
-  {
-    id: 2,
-    bg: "../assets/bg2.jpg",
-    bgMobile: "../assets/bg2-mobile.jpeg",
-    bottle: "../assets/cellImage_0_3.png",
-    title: "Exclusive Collection",
-    subtitle: "Timeless elegance in every bottle",
-  },
-  {
-    id: 3,
-    bg: "../assets/bg3.jpg",
-    bgMobile: "../assets/bg3-mobile.jpeg",
-    bottle: "../assets/cellImage_0_4.png",
-    title: "Premium Quality",
-    subtitle: "Crafted for the modern soul",
-  },
-  {
-    id: 4,
-    bg: "../assets/bg4.jpg",
-    bgMobile: "../assets/bg4-mobile.jpeg",
-    bottle: "../assets/cellImage_0_5.png",
-    title: "Premium Quality",
-    subtitle: "Crafted for the modern soul",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 function Hero() {
+  const { t } = useTranslation();
   const [current, setCurrent] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const timerRef = useRef(null);
+
+  const slides = [
+    {
+      id: 1,
+      bg: "../assets/bg1.jpg",
+      bgMobile: "../assets/bg1-mobile.jpeg",
+      bottle: "../assets/cellImage_0_9.png",
+      title: t("hero.slides.1.title"),
+      perfumeTitle:"Tom Ford",
+      subtitle: t("hero.slides.1.subtitle"),
+    },
+    {
+      id: 2,
+      bg: "../assets/bg2.jpg",
+      bgMobile: "../assets/bg2-mobile.jpeg",
+      bottle: "../assets/cellImage_0_23.png",
+      title: t("hero.slides.2.title"),
+      perfumeTitle:"Creed",
+      subtitle: t("hero.slides.2.subtitle"),
+    },
+    {
+      id: 3,
+      bg: "../assets/bg3.jpg",
+      bgMobile: "../assets/bg3-mobile.jpeg",
+      bottle: "../assets/cellImage_0_81.png",
+      title: t("hero.slides.3.title"),
+      perfumeTitle:"Bvlgari",
+      subtitle: t("hero.slides.3.subtitle"),
+    },
+    {
+      id: 4,
+      bg: "../assets/bg4.jpg",
+      bgMobile: "../assets/bg4-mobile.jpeg",
+      bottle: "../assets/cellImage_0_2.png",
+      title: t("hero.slides.4.title"),
+      perfumeTitle:"Chanel",
+      subtitle: t("hero.slides.4.subtitle"),
+    },
+  ];
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      handleNext();
+    timerRef.current = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
     }, 5000);
-    return () => clearInterval(timer);
-  }, [current]);
 
-  // Listen to resize to swap bg dynamically
+    return () => clearInterval(timerRef.current);
+  }, [slides.length]);
+
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  const handlePrev = () => {
-    setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  };
-
-  const handleNext = () => {
-    setCurrent((prev) => (prev + 1) % slides.length);
-  };
 
   return (
     <section className="hero">
@@ -80,17 +79,13 @@ function Hero() {
       <div className="bottle-carousel">
         {slides.map((slide, index) => (
           <div key={slide.id} className={`bottle-slide ${index === current ? "active" : ""}`}>
-            <img src={slide.bottle} alt={slide.title} className="bottle-img" />
-            <h2 className="bottle-title">{slide.title}</h2>
+            <img src={slide.bottle} alt={slide.perfumeTitle} className="bottle-img" />
+            <h2 className="bottle-title">{slide.perfumeTitle}</h2>
           </div>
         ))}
-        <div className="arrows">
-          <button onClick={handlePrev}>&larr;</button>
-          <button onClick={handleNext}>&rarr;</button>
-        </div>
       </div>
+      <h1 className="hero-mobile-heading">Essenza</h1>
 
-      {/* Background Carousel */}
       <div className="bg-carousel">
         {slides.map((slide, index) => (
           <div
@@ -99,11 +94,8 @@ function Hero() {
             style={{ backgroundImage: `url(${isMobile ? slide.bgMobile : slide.bg})` }}
           >
             <div className="overlay">
-              <h3>{slide.subtitle}</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Elegant notes crafted for modern souls.
-              </p>
+              <h3>{slide.title}</h3>
+              <p>{slide.subtitle}</p>
             </div>
           </div>
         ))}

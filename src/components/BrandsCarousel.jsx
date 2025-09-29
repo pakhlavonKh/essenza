@@ -19,19 +19,16 @@ const brands = [
 const BrandCarousel = () => {
   const trackRef = useRef(null);
 
-  // ✅ responsive visibleCount
   const [visibleCount, setVisibleCount] = useState(getVisibleCount());
   const [index, setIndex] = useState(getVisibleCount());
   const [isTransitioning, setIsTransitioning] = useState(true);
 
-  // Determine visible count per breakpoint
   function getVisibleCount() {
-    if (window.innerWidth < 768) return 2; // 📱 mobile → 2 logos
-    if (window.innerWidth < 1024) return 3; // 📲 tablet
-    return 5;                               // 💻 desktop
+    if (window.innerWidth < 768) return 2; 
+    if (window.innerWidth < 1024) return 3; 
+    return 5;                               
   }
 
-  // Update visibleCount on resize
   useEffect(() => {
     const handleResize = () => {
       const newCount = getVisibleCount();
@@ -42,14 +39,12 @@ const BrandCarousel = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Clone slides for infinite effect
   const slides = [
     ...brands.slice(-visibleCount),
     ...brands,
     ...brands.slice(0, visibleCount)
   ];
 
-  // Auto-slide every 3s
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex(prev => prev + 1);
@@ -92,7 +87,7 @@ const BrandCarousel = () => {
             <div
               key={i}
               className="carousel-item"
-              style={{ flex: `0 0 ${100 / visibleCount}%` }} // ✅ width per visible count
+              style={{ flex: `0 0 ${100 / visibleCount}%` }} 
             >
               <img src={brand.logo} alt={brand.name} className="brand-logo" />
             </div>

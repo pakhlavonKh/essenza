@@ -1,6 +1,92 @@
 {
-    "home": "Bosh",
-    "about": "biz",
-    "catalog": "katalog",
-    "contact": "aloqa"
+  "home": "Bosh sahifa",
+  "aboutUs": "Biz haqimizda",
+  "catalogNav": "Katalog",
+  "contact": "Aloqa",
+  "hero": {
+    "slides": {
+      "1": {
+        "title": "Premium parfyumeriya ulgurji savdosi",
+        "subtitle": "Yevropa ishlab chiqaruvchilaridan to'g'ridan-to'g'ri yetkazib berish. Keng assortiment, shaffof shartlar va butun O'zbekiston bo'ylab ishonchli yetkazib berish."
+      },
+      "2": {
+        "title": "Eksklyuziv kolleksiyalar",
+        "subtitle": "Biznesingizning o'ziga xosligini ta'kidlaydigan xushbo'y hidlar."
+      },
+      "3": {
+        "title": "Ishonchli hamkor",
+        "subtitle": "Ulgurji xaridorlar uchun sifatli mahsulotlar va qo'llab-quvvatlash."
+      },
+      "4": {
+        "title": "Premium sifat",
+        "subtitle": "Brendingiz uchun ishonch va obro'ni yaratamiz."
+      }
+    }
+  },
+
+  "about": {
+    "title": "Biz haqimizda",
+    "paragraph1": "Biz — Fransiyaning Argeville kompaniyasining Oʻzbekistondagi rasmiy distribyutorimiz. Asosiy yoʻnalishimiz — yuqori sifatli moyli atirlar va ambra bazasining ulgurji va yirik ulgurji yetkazib berilishi.",
+    "paragraph2": "Fransiyadagi ishlab chiqaruvchi bilan toʻgʻridan-toʻgʻri hamkorlik tufayli biz mahsulotning asl va premium sifatini, hamkorlar uchun qulay shartlarni, barqaror yetkazib berish va professional xizmatni kafolatlaymiz."
+  },
+  
+  "fragrance": {
+    "title": "Atirlar",
+    "items": {
+      "1": {
+        "name": "Mevali atirlar",
+        "description": "Shirin, shirali va quvnoq — yangi mevalar notalari bilan."
+      },
+      "2": {
+        "name": "Achchiq atirlar",
+        "description": "Iliq, to‘yingan va ekzotik — boy ziravorlar akkortlari bilan."
+      },
+      "3": {
+        "name": "Gul atirlari",
+        "description": "Romantik va nafis — nozik gul notalari bilan."
+      },
+      "4": {
+        "name": "Sitrus atirlari",
+        "description": "Yorqin, yangi va tetiklantiruvchi — sitrusli akkortlar bilan."
+      }
+    }
+  },
+
+  "perfume": {
+    "title": "Mavjud atirlar",
+    "moreBtn": "Ko‘proq"
+  },
+
+  "catalog": {
+    "searchPlaceholder": "Brend, nom yoki tavsif bo'yicha qidirish...",
+    "qualityLabel": "Sifat",
+    "notFound": "Hech narsa topilmadi",
+    "quality": {
+      "Deluxe": "Deluxe",
+      "Standard": "Standart",
+      "Top": "Premium"
+    }
+  },
+
+  "pagination": {
+    "prev": "Oldingi",
+    "next": "Keyingi",
+    "page": "Sahifa",
+    "pageInfo": "{{current}} / {{total}}'dan ",
+    "of": "dan"
+  },
+  
+  "footer": {
+    "contactTitle": "Biz bilan bog‘laning",
+    "email": "essenzaperfumes17@gmail.com",
+    "phone": "+998 (90) 352 59 59",
+    "telegramEssenza": "Telegram Essenza",
+    "telegramArgeville": "Telegram Argeville",
+    "instagram": "Instagram",
+    "locationTitle": "Manzil",
+    "address": "Essenza Parfumes, Zarqarliq ko‘chasi 10A",
+    "rights": "Barcha huquqlar himoyalangan"
+  }
+
+
 }

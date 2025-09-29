@@ -192,6 +192,10 @@ button {
   opacity: 1; 
 }
 
+.mobile-navigation, .mobile-lang-switcher {
+  display: none;
+}
+
 .lang-switcher {
   position: relative;
   width: 20rem;
@@ -260,6 +264,19 @@ button {
   width: 100%;
 }
 
+.hero-mobile-heading {
+  display: none;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 7.5rem;
+  color: white;
+  z-index: 2001;
+  font-weight: 600;
+  animation: fadeUpHeading 1s ease-out forwards;
+}
+
 .contacts {
   display: flex;
   flex-direction: column;
@@ -269,6 +286,7 @@ button {
   padding: 3rem;
   background: var(--color-primary);
 }
+
 .contacts a {
   color: white;
   font-weight: 600;
@@ -276,13 +294,13 @@ button {
   writing-mode: vertical-rl;
   text-decoration: none;
 }
+
 .bottle-carousel {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* padding: auto 2rem; */
   background: #f9f9f9;
   overflow: hidden;
 }
@@ -316,27 +334,6 @@ button {
   font-weight: bold;
 }
 
-.arrows {
-  display: none;
-  /* display: flex; */
-  gap: 2rem;
-  margin-top: 5rem;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--color-primary);
-}
-.arrows button {
-  border: 2px solid #fff;
-  padding: 1rem 1.5rem;
-  font-size: 2rem;
-  color: #fff;
-  cursor: pointer;
-  background: none;
-}
-
-/* Right column - Background carousel */
 .bg-carousel {
   position: relative;
   overflow: hidden;
@@ -380,8 +377,8 @@ button {
   padding: 6rem 2rem; 
   width: 100%;
   text-align: center; 
-  display: flex; /* horizontal layout */
-  justify-content: center;/* center items horizontally */
+  display: flex; 
+  justify-content: center;
   align-items: center; 
   flex-direction: row;
   background-color: #f9f9f9; 
@@ -406,7 +403,7 @@ button {
   font-size: 1.6rem;
   line-height: 1.8;
   max-width: 800px;
-  margin: 0 auto 3rem auto; /* center the paragraph and add bottom spacing */
+  margin: 0 auto 3rem auto; 
 }
 
 .about ul {
@@ -425,12 +422,11 @@ button {
   padding-left: 2rem;
 }
 
-/* Custom bullet */
 .about ul li::before {
   content: "✓";
   position: absolute;
   left: 0;
-  color: var(--color-primary); /* highlight color */
+  color: var(--color-primary); 
   font-weight: bold;
 }
 
@@ -446,8 +442,9 @@ button {
   width: 50%;
   height: 18rem;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
-  border-radius: 0.7rem;
+  border-radius: 1.2rem;
   position: absolute;
+  object-fit: cover;
   z-index: 10;
   transition: all .2s;
   outline-offset: 2rem;
@@ -483,6 +480,7 @@ button {
 .fragrance-section {
   text-align: center;
   padding: 4rem 2rem;
+  min-height: 30rem;
   background-color: #fdfdfd;
 }
 
@@ -495,6 +493,7 @@ button {
   display: grid;
   grid-template-columns: repeat(4, minmax(20rem, 1fr));          
   max-width: 100rem;  
+  height: 30rem;
   margin: 0 auto;
   flex-direction: row;
   gap: 6rem;
@@ -507,10 +506,11 @@ button {
   flex-direction: column;
   align-items: center;
   width: 20rem;
+  height: 100%;
 }
 
 .fragrance-item h3 {
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   margin-bottom: 1rem;
   color: #111;
 }
@@ -991,6 +991,10 @@ button {
     height: 100dvh;
   }
 
+  .hero-mobile-heading {
+    display: block;
+  }
+
   .contacts {
     display: none;
   }
@@ -1060,6 +1064,8 @@ button {
     grid-template-columns: repeat(2, 1fr);
     gap: 3em;
     width: 100%;
+    min-height: 60rem;
+    height: auto;
     padding: 0;
   }
 
@@ -1094,11 +1100,11 @@ button {
   }
 
   .catalog-search {
-    margin-top: 12rem;
+    margin-top: 8rem;
   }
 
   .catalog-search input {
-    max-width: 90%;
+    max-width: 80%;
     font-size: 1.6rem;
     padding: 0.7rem 1rem;
   }
@@ -1126,6 +1132,16 @@ button {
 
   .footer-contacts a {
     font-size: 1.7rem;
+  }
+
+  .footer-contacts ul {
+    display: flex;
+    gap: 2rem;
+    flex-direction: row;
+  }
+
+  .footer-contacts span {
+    display: none;
   }
 
   .footer-copy {
@@ -1206,6 +1222,17 @@ button {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes fadeUpHeading {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
   }
 }
 
