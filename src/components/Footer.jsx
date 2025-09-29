@@ -40,6 +40,7 @@ function Footer() {
         <div className="footer-copy">
             &copy; {new Date().getFullYear()} Essenza. {t("footer.rights")}.
         </div>
+        <div className="made">Made by <a href="https://pakhlavon.dev/">pakhlavon.dev</a> & <a href="https://mukhsinus.dev/">mukhsinus.dev</a></div>
     </footer>
     )
 };

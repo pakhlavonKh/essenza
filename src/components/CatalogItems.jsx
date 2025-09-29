@@ -38,7 +38,7 @@ const CatalogItems = ({ itemsPerPage = 12 }) => {
       <div className="catalog-items">
         {currentItems.map((item, index) => (
           <div key={index} className="catalog-item">
-            <img src={item.img} alt={item.name} className="catalog-image" />
+            <img src={item.img} alt={item.name} className="catalog-image" loading="lazy"/>
             <h3 className="catalog-brand">{item.brand}</h3>
             <h4 className="catalog-label">{item.name}</h4>
             <p className="catalog-description">{t("catalog.qualityLabel")}: {item.description}</p>

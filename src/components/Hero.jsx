@@ -84,7 +84,7 @@ function Hero() {
           </div>
         ))}
       </div>
-      <h1 className="hero-mobile-heading">Essenza</h1>
+      <img src="../assets/essenza_white.png" alt="essenza" className="hero-mobile-heading" />
 
       <div className="bg-carousel">
         {slides.map((slide, index) => (

@@ -267,14 +267,11 @@ button {
 .hero-mobile-heading {
   display: none;
   position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 7.5rem;
-  color: white;
+  top: 2.5rem;
+  left: 2rem;
+  width: 50%;
+  height: auto;
   z-index: 2001;
-  font-weight: 600;
-  animation: fadeUpHeading 1s ease-out forwards;
 }
 
 .contacts {
@@ -577,7 +574,6 @@ button {
 }
 
 .carousel-item {
-  flex: 0 0 25%; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -827,13 +823,25 @@ button {
   color: var(--color-muted);
   margin-top: 2rem;
   border-top: 2px solid rgba(255, 255, 255, 0.1);
-  padding: 2rem 0;
+  padding: 1rem 0;
+}
+
+.made {
+  text-align: center;           
+  font-size: 1.5rem;            
+  color: #fff; 
+  margin-bottom: 1rem;             
+  font-family: 'Arial', sans-serif;
+}
+
+.made a {
+  color: #fff;               
+  text-decoration: none;       
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 @media (max-width: 1024px) {
-  .carousel-item {
-    flex: 0 0 30%;
-  }
 
   .composition {
     width: 80%;
@@ -1013,9 +1021,6 @@ button {
     bottom: 10%;
     left: 5%;
   }
-  .carousel-item {
-    flex: 0 0 80%;
-  }
   .carousel-wrapper {
     gap: 0.8rem;
   }
@@ -1040,6 +1045,7 @@ button {
     float: left;
     position: relative;
     width: 33.33333333%;
+    height: 10rem;
     box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2);
   }
 
@@ -1075,6 +1081,7 @@ button {
 
   .fragrance-item h3 {
     font-size: 2rem;
+    width: 80%;
   }
 
   .fragrance-item p {
@@ -1084,10 +1091,6 @@ button {
   .fragrance-icon {
     width: 10rem;
     height: 10rem;
-  }
-
-  .carousel-item {
-    flex: 0 0 50%;
   }
 
   .perfume-img {
@@ -1164,15 +1167,14 @@ button {
   }
 }
 
-/* Mobile landscape */
 @media (max-width: 1024px) and (orientation: landscape) {
   .hero {
-    flex-direction: row; /* restore row layout */
+    flex-direction: row; 
     height: calc(100vh - 8rem);
   }
 
   .about {
-    flex-direction: row; /* horizontal layout */
+    flex-direction: row;
     padding: 2rem 3rem;
     text-align: left;
     height: 50rem;
@@ -1189,7 +1191,7 @@ button {
   }
 
   .fragrance-grid {
-    grid-template-columns: repeat(2, 1fr); /* more columns in landscape */
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
 
@@ -1198,18 +1200,10 @@ button {
     margin: 0 auto;
   }
 
-  .carousel-item {
-    flex: 0 0 33.3333%; /* show more items in carousel */
-  }
-
   .perfume-img {
     width: 18rem;
     height: 18rem;
   }
-
-  /* .mobile-menu {
-    top: 8rem; 
-  } */
 }
 
 
@@ -1222,17 +1216,6 @@ button {
   100% {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes fadeUpHeading {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, 3rem);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(-50%, 0);
   }
 }
 
