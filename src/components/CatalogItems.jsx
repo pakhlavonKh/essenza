@@ -46,7 +46,7 @@ const CatalogItems = ({ itemsPerPage = 12 }) => {
         ))}
 
         {filteredItems.length === 0 && (
-          <p className="no-results">{t("not-found")}</p>
+          <p className="no-results">{t("catalog.notFound")}</p>
         )}
       </div>
 

@@ -665,6 +665,12 @@ button {
   box-shadow: 0 0 0 3px rgba(248, 117, 0, 0.2);
 }
 
+.no-results {
+  font-size: 2rem;
+  color: #666;
+  margin-top: 2rem;
+}
+
 .catalog-items {
   display: grid;
   grid-template-columns: repeat(4, minmax(25rem, 1fr));
