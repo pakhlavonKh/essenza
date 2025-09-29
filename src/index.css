@@ -13,7 +13,6 @@
 }
 
 html {
-  box-sizing: border-box;
   scroll-behavior: smooth;
   font-size: 62.5%;
   width: 100%;
@@ -109,13 +108,6 @@ button {
   transform: rotate(-135deg);
 }
 
-/* .header.open {
-  height: calc(var(--vh) * 1000);
-  min-height: 1000dvh;
-  transition: height 0.4s ease;
-} */
-
-
 .navigation__background {
   display: none;
   height: 4rem;
@@ -130,12 +122,8 @@ button {
 
   
 .navigation__checkbox:checked ~ .navigation__background {
-  transform: scale(50); }
-  
-/* .mobile-menu {
-  display: none;
-} */
-
+  transform: scale(50); 
+}
 
 .header img {
   height: 3.5rem;
@@ -380,7 +368,6 @@ button {
   flex-direction: row;
   background-color: #f9f9f9; 
   color: #111; 
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 .about-text {
@@ -508,7 +495,7 @@ button {
 }
 
 .fragrance-item h3 {
-  font-size: 2.3rem;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
   color: #111;
 }
@@ -717,7 +704,7 @@ button {
   font-size: 1.4rem;
   color: #666;
   padding: 0 1rem 1rem;
-  min-height: 4.5rem; /* Ensure consistent height */
+  min-height: 4.5rem; 
 }
 
 .catalog-pagination {
@@ -782,7 +769,7 @@ button {
 .footer-contacts ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .footer-contacts li {
@@ -796,9 +783,6 @@ button {
   transition: color 0.3s ease;
 }
 
-.footer-contacts a:hover {
-  color: var(--color-secondary);
-}
 
 .footer-map {
   flex: 1 1 40rem;
@@ -814,14 +798,12 @@ button {
 
 .footer-map p {
   font-size: 2rem;
-  color: var(--color-muted);
 }
 
 .footer-copy {
   width: 100%;
   text-align: center;
   font-size: 1.8rem;
-  color: var(--color-muted);
   margin-top: 2rem;
   border-top: 2px solid rgba(255, 255, 255, 0.1);
   padding: 1rem 0;
@@ -906,13 +888,10 @@ button {
     z-index: 2002;
   }
 
-  
   .navigation,
   .lang-switcher {
     display: none;
   }
-  
-
 
   .mobile-navigation {
     display: flex;
@@ -934,7 +913,7 @@ button {
     opacity: 1;
   }
 
-   .mobile-navigation a {
+  .mobile-navigation a {
       text-decoration: none;
       font-weight: 600;
       position: relative;
@@ -945,6 +924,7 @@ button {
   .navigation__checkbox:checked ~ .mobile-menu .mobile-lang-switcher {
     display: flex;
   }
+
   .mobile-lang-switcher {
     display: flex;
     justify-content: center; 
@@ -1120,6 +1100,7 @@ button {
   .footer-contacts ul {
     display: flex;
     gap: 2rem;
+    justify-content: center;
     flex-direction: row;
   }
 
@@ -1186,8 +1167,6 @@ button {
   }
 }
 
-
-
 @keyframes fadeUp {
   0% {
     opacity: 0;
@@ -1199,7 +1178,6 @@ button {
   }
 }
 
-
 .fade-up {
   opacity: 0;
   transform: translateY(20px);
@@ -1207,9 +1185,5 @@ button {
 
 .fade-up.show {
   animation: fadeUp 0.6s ease-out 0.3s forwards;
-}
-
-@media (max-width: 768px) {
-
 }
 
