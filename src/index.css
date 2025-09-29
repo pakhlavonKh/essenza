@@ -627,14 +627,6 @@ button {
   margin: 0 auto;
 }
 
-.carousel-track-wrapper {
-  overflow: hidden;
-  width: 100%;
-}
-
-.carousel-track {
-  display: flex;
-}
 
 .brand-logo {
   width: 12rem;

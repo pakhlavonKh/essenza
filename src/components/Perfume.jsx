@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 const perfumes = [
   { id: 1, name: "Bleu de Chanel", image: "../assets/cellImage_0_2.png" },
@@ -14,10 +14,10 @@ const perfumes = [
 ];
 
 const PerfumeCarousel = () => {
-  const [visibleCount, setVisibleCount] = useState(getVisibleCount());
-  const [index, setIndex] = useState(getVisibleCount());
-  const [lock, setLock] = useState(false);
   const { t } = useTranslation();
+  const [visibleCount, setVisibleCount] = useState(getVisibleCount());
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const trackRef = useRef();
 
   function getVisibleCount() {
     if (window.innerWidth < 768) return 1;
@@ -27,40 +27,25 @@ const PerfumeCarousel = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      const newCount = getVisibleCount();
-      setVisibleCount(newCount);
-      setIndex(newCount);
+      const count = getVisibleCount();
+      setVisibleCount(count);
+      setCurrentIndex(0); // reset on resize
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const slides = [
-    ...perfumes.slice(-visibleCount),
-    ...perfumes,
-    ...perfumes.slice(0, visibleCount),
-  ];
-
   const handleNext = () => {
-    if (lock) return;
-    setLock(true);
-    setIndex((prev) => prev + 1);
+    setCurrentIndex((prev) => (prev + 1) % perfumes.length);
   };
 
   const handlePrev = () => {
-    if (lock) return;
-    setLock(true);
-    setIndex((prev) => prev - 1);
+    setCurrentIndex((prev) => (prev - 1 + perfumes.length) % perfumes.length);
   };
 
-  const handleTransitionEnd = () => {
-    if (index >= perfumes.length + visibleCount) {
-      setIndex(visibleCount);
-    } else if (index < visibleCount) {
-      setIndex(perfumes.length + visibleCount - 1);
-    }
-    setLock(false); 
-  };
+  // Calculate width for track and items
+  const trackWidth = (perfumes.length / visibleCount) * 100;
+  const translateX = (currentIndex / perfumes.length) * 100;
 
   return (
     <section className="perfume-carousel">
@@ -73,18 +58,19 @@ const PerfumeCarousel = () => {
         <div className="carousel-track-wrapper">
           <div
             className="carousel-track"
+            ref={trackRef}
             style={{
-              transform: `translateX(-${(index * 100) / visibleCount}%)`,
+              width: `${trackWidth}%`,
+              transform: `translateX(-${translateX}%)`,
               transition: "transform 0.5s ease-in-out",
               display: "flex",
             }}
-            onTransitionEnd={handleTransitionEnd}
           >
-            {slides.map((perfume, i) => (
+            {perfumes.map((perfume) => (
               <div
-                key={i}
+                key={perfume.id}
                 className="carousel-item"
-                style={{ flex: `0 0 ${100 / visibleCount}%` }}
+                style={{ flex: `0 0 ${100 / perfumes.length}%` }}
               >
                 <img src={perfume.image} alt={perfume.name} className="perfume-img" />
                 <div className="perfume-name">{perfume.name}</div>
@@ -97,6 +83,7 @@ const PerfumeCarousel = () => {
           &#8594;
         </button>
       </div>
+
       <Link to="/catalog">
         <button className="more-btn">{t("perfume.moreBtn")}</button>
       </Link>
