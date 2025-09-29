@@ -545,8 +545,10 @@ button {
   gap: 1.5rem;
   position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: 120rem;
   margin: 0 auto;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .carousel-btn {

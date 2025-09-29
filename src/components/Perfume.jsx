@@ -14,10 +14,11 @@ const perfumes = [
 ];
 
 const PerfumeCarousel = () => {
+  const trackRef = useRef();
   const { t } = useTranslation();
   const [visibleCount, setVisibleCount] = useState(getVisibleCount());
   const [currentIndex, setCurrentIndex] = useState(0);
-  const trackRef = useRef();
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   function getVisibleCount() {
     if (window.innerWidth < 768) return 1;
@@ -27,53 +28,92 @@ const PerfumeCarousel = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      const count = getVisibleCount();
-      setVisibleCount(count);
-      setCurrentIndex(0); // reset on resize
+      const newCount = getVisibleCount();
+      setVisibleCount(newCount);
+      setCurrentIndex(0);
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % perfumes.length);
+  // Prepare slides with clones for infinite loop
+  const slides = [
+    ...perfumes.slice(-visibleCount),
+    ...perfumes,
+    ...perfumes.slice(0, visibleCount),
+  ];
+
+  const totalSlides = perfumes.length;
+
+  const moveToIndex = (newIndex) => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentIndex(newIndex);
   };
 
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + perfumes.length) % perfumes.length);
-  };
+  const handleNext = () => moveToIndex(currentIndex + 1);
+  const handlePrev = () => moveToIndex(currentIndex - 1);
 
-  // Calculate width for track and items
-  const trackWidth = (perfumes.length / visibleCount) * 100;
-  const translateX = (currentIndex / perfumes.length) * 100;
+  const handleTransitionEnd = () => {
+    let index = currentIndex;
+
+    if (index >= totalSlides) {
+      index = 0;
+    } else if (index < 0) {
+      index = totalSlides - 1;
+    }
+
+    setIsTransitioning(false);
+    setCurrentIndex(index);
+
+    // Reset track position instantly without animation for looping effect
+    trackRef.current.style.transition = "none";
+    trackRef.current.style.transform = `translateX(-${((index + visibleCount) * 100) / slides.length}%)`;
+    requestAnimationFrame(() => {
+      trackRef.current.style.transition = "transform 0.5s ease-in-out";
+    });
+  };
 
   return (
     <section className="perfume-carousel">
       <h2>{t("perfume.title")}</h2>
-      <div className="carousel-wrapper">
+      <div className="carousel-wrapper" style={{ display: "flex", alignItems: "center" }}>
         <button className="carousel-btn" onClick={handlePrev}>
           &#8592;
         </button>
 
-        <div className="carousel-track-wrapper">
+        <div className="carousel-track-wrapper" style={{ overflow: "hidden", flex: 1 }}>
           <div
             className="carousel-track"
             ref={trackRef}
             style={{
-              width: `${trackWidth}%`,
-              transform: `translateX(-${translateX}%)`,
-              transition: "transform 0.5s ease-in-out",
               display: "flex",
+              width: `${(slides.length * 100) / visibleCount}%`,
+              transform: `translateX(-${((currentIndex + visibleCount) * 100) / slides.length}%)`,
+              transition: "transform 0.5s ease-in-out",
             }}
+            onTransitionEnd={handleTransitionEnd}
           >
-            {perfumes.map((perfume) => (
+            {slides.map((perfume, i) => (
               <div
-                key={perfume.id}
+                key={i}
                 className="carousel-item"
-                style={{ flex: `0 0 ${100 / perfumes.length}%` }}
+                style={{
+                  flex: `0 0 ${100 / slides.length}%`,
+                  maxWidth: `${100 / visibleCount}%`,
+                  boxSizing: "border-box",
+                  padding: "0.5rem",
+                }}
               >
-                <img src={perfume.image} alt={perfume.name} className="perfume-img" />
-                <div className="perfume-name">{perfume.name}</div>
+                <img
+                  src={perfume.image}
+                  alt={perfume.name}
+                  className="perfume-img"
+                  style={{ width: "100%", display: "block", borderRadius: "0.5rem" }}
+                />
+                <div className="perfume-name" style={{ textAlign: "center", marginTop: "0.5rem" }}>
+                  {perfume.name}
+                </div>
               </div>
             ))}
           </div>
