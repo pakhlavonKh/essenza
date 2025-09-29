@@ -3,9 +3,9 @@ import { useInView } from "./UserInView";
 import { useTranslation } from 'react-i18next';
 
 const compositionImages = [
-  './assets/composition-1.PNG',
-  './assets/composition-2.PNG',
-  './assets/composition-3.PNG'
+  './assets/composition-1.webp',
+  './assets/composition-2.webp',
+  './assets/composition-3.webp'
 ];
 
 const About = () => {
