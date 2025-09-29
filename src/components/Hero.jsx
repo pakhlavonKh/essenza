@@ -13,8 +13,8 @@ function Hero() {
   const slides = [
     {
       id: 1,
-      bg: "../assets/bg1.jpg",
-      bgMobile: "../assets/bg1-mobile.jpeg",
+      bg: "../assets/bg1.webp",
+      bgMobile: "../assets/bg1-mobile.webp",
       bottle: "../assets/cellImage_0_9.png",
       title: t("hero.slides.1.title"),
       perfumeTitle:"Tom Ford",
@@ -22,8 +22,8 @@ function Hero() {
     },
     {
       id: 2,
-      bg: "../assets/bg2.jpg",
-      bgMobile: "../assets/bg2-mobile.jpeg",
+      bg: "../assets/bg2.webp",
+      bgMobile: "../assets/bg2-mobile.webp",
       bottle: "../assets/cellImage_0_23.png",
       title: t("hero.slides.2.title"),
       perfumeTitle:"Creed",
@@ -31,8 +31,8 @@ function Hero() {
     },
     {
       id: 3,
-      bg: "../assets/bg3.jpg",
-      bgMobile: "../assets/bg3-mobile.jpeg",
+      bg: "../assets/bg3.webp",
+      bgMobile: "../assets/bg3-mobile.webp",
       bottle: "../assets/cellImage_0_81.png",
       title: t("hero.slides.3.title"),
       perfumeTitle:"Bvlgari",
@@ -40,8 +40,8 @@ function Hero() {
     },
     {
       id: 4,
-      bg: "../assets/bg4.jpg",
-      bgMobile: "../assets/bg4-mobile.jpeg",
+      bg: "../assets/bg4.webp",
+      bgMobile: "../assets/bg4-mobile.webp",
       bottle: "../assets/cellImage_0_2.png",
       title: t("hero.slides.4.title"),
       perfumeTitle:"Chanel",
