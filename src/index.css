@@ -1014,56 +1014,45 @@ button {
   .composition {
     position: relative;
     width: 100%;
-    max-width: 680px;
+    max-width: none;
     margin: 1.6rem auto 0;
-    aspect-ratio: 16 / 9;
-    overflow: visible;
-    box-shadow: none !important;
+    aspect-ratio: 16 / 12;
+    box-shadow: none;
+    border-radius: 0;
+    transform: none;
+    transition: none;
   }
 
   .composition__photo {
     position: absolute;
     inset: 0;
+    top: 0; left: 0;
     display: none;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 1.5rem;
-    box-shadow: 0 1.5rem 4rem rgba(0,0,0,.40);
-    outline: 0 solid var(--color-primary);
-    outline-offset: 2rem;
-
-    -webkit-tap-highlight-color: transparent;
-    cursor: pointer;
-
-    transition: transform .25s ease,
-                box-shadow .25s ease,
-                outline-width .25s ease;
+    object-position: 22% 77%;
+    border-radius: 0;
+    transform-origin: center;
+    transition: none;
+    animation: none;
+    border-radius: 0;
+    box-shadow: none;
+    transform: scale(1.14);
+    outline: none !important;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    touch-action: manipulation;
   }
 
   .composition__photo--p2 {
-  display: block;
-  object-position: 30% 70%;
+    display: block;
   }
   .composition__photo--p1,
-  .composition__photo--p3 { display: none !important; }
-
-  .composition__photo--p2:hover,
-  .composition__photo--p2:active {
-    transform: scale(1.05) translateY(-0.5rem);
-    box-shadow: 0 2.5rem 4rem rgba(0,0,0,.50);
-    outline-width: 1rem;
-    z-index: 2;
-  }
-
-  /* fallback если aspect-ratio не поддерживается */
-  @supports not (aspect-ratio: 1 / 1) {
-    .composition {
-      height: calc((100vw - 3.2rem) * 9 / 16);
-    }
-  }
-}
+  .composition__photo--p3 { display: none; }
   /* я закончил изменения */
+
 
   .fragrance-grid {
     grid-template-columns: repeat(2, 1fr);
