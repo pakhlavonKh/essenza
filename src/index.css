@@ -1043,7 +1043,7 @@ button {
 
   .composition__photo--p2 {
   display: block;
-  object-position: 0% 100%;
+  object-position: 30% 70%;
   }
   .composition__photo--p1,
   .composition__photo--p3 { display: none !important; }
