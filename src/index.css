@@ -1041,7 +1041,10 @@ button {
                 outline-width .25s ease;
   }
 
-  .composition__photo--p2 { display: block; }
+  .composition__photo--p2 {
+  display: block;
+  object-position: 0% 100%;
+  }
   .composition__photo--p1,
   .composition__photo--p3 { display: none !important; }
 
