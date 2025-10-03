@@ -11,6 +11,14 @@
   background-color: #ffffff;
   --color-primary:#F87500;
   --hero-strip-h: 10rem;
+    /* ширина левой колонки */
+  --hero-left-col: 26%;
+  /* зазор вокруг карточек в hero */
+  --hero-gap: 0rem;
+  --hero-card-h: 30rem;
+  /* ширина оранжевой плашки */
+  --hero-slab: 40%;
+  --hero-slab-color: color-mix(in srgb, var(--color-primary) 92%, white 8%);
 }
 
 html {
@@ -37,7 +45,6 @@ button {
   border: none;
   background: none;
 }
-
 
 .header {
   display: flex;
@@ -119,11 +126,11 @@ button {
   right: 2rem;
   background-image: radial-gradient(#F87500, #ff9d4d);
   z-index: 1000;
-  transition: transform 0.8s cubic-bezier(0.86, 0, 0.25, 1); }
+  transition: transform 0.8s cubic-bezier(0.86, 0, 0.25, 1);
+}
 
-  
 .navigation__checkbox:checked ~ .navigation__background {
-  transform: scale(50); 
+  transform: scale(50);
 }
 
 .header img {
@@ -138,8 +145,8 @@ button {
 
 .navigation.fixed {
   position: fixed;
-  top: 0;     
-  left: 0; 
+  top: 0;
+  left: 0;
   opacity: 0.8;
   width: 100vw;
   padding: 1rem;
@@ -155,7 +162,7 @@ button {
   font-size: 2rem;
   position: relative;
   opacity: 0.9;
-  color: #fff; 
+  color: #fff;
   transition: opacity 0.3s ease, border-bottom 0.3s ease;
   border-bottom: 2px solid transparent;
 }
@@ -168,7 +175,7 @@ button {
   left: 50%;
   width: 0;
   height: 1px;
-  background-color: white; 
+  background-color: white;
   transition: all 0.3s ease;
   transform: translateX(-50%);
 }
@@ -178,7 +185,7 @@ button {
 }
 
 .header nav a:hover {
-  opacity: 1; 
+  opacity: 1;
 }
 
 .mobile-navigation, .mobile-lang-switcher {
@@ -189,12 +196,11 @@ button {
   position: relative;
   width: 20rem;
   height: 3rem;
-  
 }
 
 .lang-button {
-  background-color: #fff; 
-  color: var(--color-primary); 
+  background-color: #fff;
+  color: var(--color-primary);
   border: none;
   padding: 0.5rem 1rem;
   position: absolute;
@@ -208,7 +214,7 @@ button {
 
 .lang-button:hover {
   background-color: #f5f5f5;
-  color: #e14d00; 
+  color: #e14d00;
 }
 
 .lang-menu {
@@ -243,156 +249,165 @@ button {
 }
 
 .lang-option.active {
-  color: var(--color-primary); 
+  color: var(--color-primary);
   font-weight: 700;
 }
-.hero {
+
+/* я вносил изменения */
+
+.hero{
   display: grid;
-  grid-template-columns: 12rem 1fr 3fr; 
+  grid-template-columns: minmax(28rem, var(--hero-left-col)) 1fr;
   height: calc(100vh - 8rem);
   width: 100%;
+  background: var(--color-primary);
+  position: relative;
+  overflow: hidden;
+  --lift: 6px;
+  --shadow-normal: 0 28px 60px rgba(0,0,0,.22);
+  --shadow-lift:   0 40px 90px rgba(0,0,0,.30);
 }
 
-.hero-mobile-heading {
-  display: none;
+/* Соц-иконки — фикс справа по центру */
+.contacts{
   position: absolute;
-  top: 2.5rem;
-  left: 2rem;
-  width: 50%;
-  height: auto;
-  z-index: 2001;
-}
-
-.contacts {
+  right: 2.4rem;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: end;
-  gap: 5rem;
-  padding: 3rem;
-  background: var(--color-primary);
+  gap: 2.4rem;
+  z-index: 6;
 }
 
 .contacts a {
-  color: white;
+  color: #fff;
   font-weight: 600;
-  font-size: 2rem;
-  writing-mode: vertical-rl;
+  font-size: 2.2rem;
   text-decoration: none;
 }
 
-.bottle-carousel {
-  position: relative;
+.bottle-carousel{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #f9f9f9;
-  overflow: hidden;
+  margin: 3rem 0rem 3rem 2rem;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 200px 140px -10px rgba(0.35, 0.35, 0.35, 0.35);
+  height: 85%;
 }
 
-.bottle-slide {
+.bottle-slide{
   position: absolute;
   opacity: 0;
   transform: translateX(5rem);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  text-align: center;
+  transition: .6s;
   width: 100%;
-  margin: 0 auto;
-  justify-content: center;
+  text-align: center;
 }
 
-.bottle-slide.active {
+.bottle-slide.active{
   opacity: 1;
   transform: translateX(0);
   position: relative;
 }
 
-.bottle-img {
-  height: 28rem;
-  width: 20rem;
-  object-fit:cover;
+.bottle-img{
+  height: 32rem;
+  width: auto;
+  object-fit: contain;
 }
 
-.bottle-title {
-  margin-top: 20px;
+.bottle-title{
+  margin-top: 1.6rem;
   font-size: 1.8rem;
-  font-weight: bold;
+  font-weight: 700;
+  color: #111;
 }
 
 .bg-carousel {
   position: relative;
+  margin: 3rem 2rem 3rem 2.4rem; 
+  border-radius: 8px;
   overflow: hidden;
+  box-shadow: 0 200px 140px -10px rgba(0.35, 0.35, 0.35, 0.35);
+  height: 85%;
 }
 
-.bg-slide {
+.bg-slide{
   position: absolute;
   inset: 0;
   background-size: cover;
-  background-position: center;
+  background-position: var(--hero-bg-pos-x) center;
   opacity: 0;
   transform: translateX(-50px);
   transition: opacity 1s ease, transform 1s ease;
+  z-index: 0;
 }
-
-.bg-slide.active {
+.bg-slide.active{
   opacity: 1;
   transform: translateX(0);
   z-index: 1;
 }
 
-/* я внес изменения */
-.hero .bg-carousel { position: relative; }
+/* оранжевая плашка */
+.bg-slide::before{
+  content: "";
+  position: absolute;
+  left:0; top:0; bottom:0;
+  width: var(--hero-slab);
+  background: var(--hero-slab-color);
+  z-index: 2;
+  pointer-events: none;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
 
+/* текст на плашке */
 .hero .bg-carousel .overlay{
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  width: 100%;
-  height: var(--hero-strip-h);
-  background: var(--color-primary);
+  left: clamp(2.4rem, 4vw, 5.2rem);
+  top: 50%;
+  transform: translateY(-50%);
+  width: calc(var(--hero-slab) - 4rem);
+  max-width: 64rem;
   color: #fff;
-  z-index: 5;
-
+  opacity: .90;
+  z-index: 3;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: .8rem;
-  padding: 1.6rem clamp(2rem, 6vw, 10%);
-  box-sizing: border-box;
-  border-radius: 0;
-  box-shadow: none;
+  gap: 1.6rem;
+  background: transparent;
 }
 
 .hero .bg-carousel .overlay h3{
   margin: 0;
-  font-weight: 800;
-  line-height: 1.1;
-  font-size: clamp(2.2rem, 2.6vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: .01em;
+  font-size: clamp(2.2rem, 3vw, 6rem);
 }
 
 .hero .bg-carousel .overlay p{
-  margin: 0;
-  line-height: 1.45;
-  font-size: clamp(1.4rem, 1.4vw, 1.8rem);
-  max-width: 110ch;
+  margin: .4rem 0 0 0;
+  line-height: 1.35;
+  font-size: clamp(1.6rem, 1.6vw, 2.2rem);
+  max-width: 44ch;
 }
 
-
-
 .about {
-  padding: 6rem 2rem; 
+  padding: 6rem 2rem;
   width: 100%;
-  text-align: center; 
-  display: flex; 
+  text-align: center;
+  display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   flex-direction: row;
-  background-color: #f9f9f9; 
-  color: #111; 
+  background-color: #f9f9f9;
+  color: #111;
 }
 
 .about-text {
@@ -412,7 +427,7 @@ button {
   font-size: 1.6rem;
   line-height: 1.8;
   max-width: 800px;
-  margin: 0 auto 3rem auto; 
+  margin: 0 auto 3rem auto;
 }
 
 .about ul {
@@ -435,7 +450,7 @@ button {
   content: "✓";
   position: absolute;
   left: 0;
-  color: var(--color-primary); 
+  color: var(--color-primary);
   font-weight: bold;
 }
 
@@ -485,8 +500,6 @@ button {
   transform: scale(0.95);
 }
 
-
-
 .fragrance-section {
   text-align: center;
   padding: 4rem 2rem;
@@ -501,8 +514,8 @@ button {
 
 .fragrance-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(20rem, 1fr));          
-  max-width: 100rem;  
+  grid-template-columns: repeat(4, minmax(20rem, 1fr));
+  max-width: 100rem;
   height: 30rem;
   margin: 0 auto;
   flex-direction: row;
@@ -642,7 +655,6 @@ button {
   margin: 0 auto;
 }
 
-
 .brand-logo {
   width: 12rem;
   height: auto;
@@ -729,7 +741,7 @@ button {
   font-size: 1.4rem;
   color: #666;
   padding: 0 1rem 1rem;
-  min-height: 4.5rem; 
+  min-height: 4.5rem;
 }
 
 .catalog-pagination {
@@ -766,17 +778,15 @@ button {
   cursor: not-allowed;
 }
 
-
 .footer {
   background: var(--color-primary);
   color: #fff;
   padding: 3rem 4rem 0 4rem;
-
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
-  text-align: left; 
+  text-align: left;
 }
 
 .footer h3 {
@@ -808,7 +818,6 @@ button {
   transition: color 0.3s ease;
 }
 
-
 .footer-map {
   flex: 1 1 40rem;
   max-width: 60rem;
@@ -835,22 +844,21 @@ button {
 }
 
 .made {
-  text-align: center;           
-  font-size: 1.5rem;            
-  color: #fff; 
-  margin-bottom: 1rem;             
+  text-align: center;
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
   font-family: 'Arial', sans-serif;
 }
 
 .made a {
-  color: #fff;               
-  text-decoration: none;       
+  color: #fff;
+  text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 @media (max-width: 1024px) {
-
   .composition {
     width: 80%;
     margin: 2rem auto;
@@ -885,7 +893,6 @@ button {
     height: 3.5rem;
     width: auto;
   }
-
 
   .navigation__button {
     display: flex;
@@ -1077,7 +1084,6 @@ button {
   .composition__photo--p3 { display: none; }
   /* я закончил изменения */
 
-
   .fragrance-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 3em;
@@ -1238,4 +1244,3 @@ button {
 .fade-up.show {
   animation: fadeUp 0.6s ease-out 0.3s forwards;
 }
-
