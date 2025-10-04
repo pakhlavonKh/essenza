@@ -293,7 +293,7 @@ button {
   align-items: center;
   justify-content: center;
   margin: 3rem 0rem 3rem 2rem;
-  border-radius: 8px;
+  border-radius: 1rem;
   background: #fff;
   box-shadow: 0 200px 140px -10px rgba(0.35, 0.35, 0.35, 0.35);
   height: 85%;
@@ -330,7 +330,7 @@ button {
 .bg-carousel {
   position: relative;
   margin: 3rem 2rem 3rem 2.4rem; 
-  border-radius: 8px;
+  border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 200px 140px -10px rgba(0.35, 0.35, 0.35, 0.35);
   height: 85%;
@@ -356,7 +356,9 @@ button {
 .bg-slide::before{
   content: "";
   position: absolute;
-  left:0; top:0; bottom:0;
+  left:-1px; 
+  top:-1px; 
+  bottom:0;
   width: var(--hero-slab);
   background: var(--hero-slab-color);
   z-index: 2;
@@ -365,13 +367,12 @@ button {
   border-bottom-left-radius: 8px;
 }
 
-/* текст на плашке */
 .hero .bg-carousel .overlay{
   position: absolute;
   left: clamp(2.4rem, 4vw, 5.2rem);
   top: 50%;
   transform: translateY(-50%);
-  width: calc(var(--hero-slab) - 4rem);
+  width: calc(var(--hero-slab) - 8rem);
   max-width: 64rem;
   color: #fff;
   opacity: .90;
@@ -384,11 +385,11 @@ button {
 
 .overlay h3 {
   font-size: 2.4rem;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
 .overlay p {
-  font-size: 1.4rem;
+  font-size: 1.7rem;
   line-height: 1.5;
 }
 
@@ -522,12 +523,13 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 20rem;
+  width: 22rem;
   height: 100%;
 }
 
 .fragrance-item h3 {
   font-size: 2.5rem;
+  width: 20rem;
   margin-bottom: 1rem;
   color: #111;
 }
