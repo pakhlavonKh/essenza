@@ -367,7 +367,7 @@ button {
   border-bottom-left-radius: 8px;
 }
 
-.hero .bg-carousel .overlay{
+.overlay{
   position: absolute;
   left: clamp(2.4rem, 4vw, 5.2rem);
   top: 50%;
@@ -484,16 +484,19 @@ button {
   top: 10rem;
 }
 
-.composition__photo:hover {
-  outline: 1rem solid var(--color-primary);
-  transform: scale(1.05) translateY(-0.5rem);
-  box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
-  z-index: 20;
+@media (hover: hover) and (pointer: fine) {
+  .composition__photo:hover {
+    outline: 1rem solid var(--color-primary);
+    transform: scale(1.05) translateY(-0.5rem);
+    box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
+    z-index: 20;
+  }
+
+  .composition:hover .composition__photo:not(:hover) {
+    transform: scale(0.95);
+  }
 }
 
-.composition:hover .composition__photo:not(:hover) {
-  transform: scale(0.95);
-}
 
 .fragrance-section {
   text-align: center;
@@ -872,14 +875,14 @@ button {
 @media (max-width: 768px) {
   .header {
     display: flex;
-    position: static;
-    top: auto;
-    left: auto;
-    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
     height: 8rem;
     padding: 1.5rem 2rem;
     background-color: var(--color-primary);
-    z-index: 1;
+    z-index: 20;
     align-items: center;
     justify-content: space-between;
   }
@@ -983,7 +986,7 @@ button {
   .hero {
     display: flex;
     flex-direction: column;
-    height: 100dvh;
+    margin-top: 8rem;
   }
 
   .hero-mobile-heading {
@@ -999,15 +1002,25 @@ button {
   }
 
   .bg-carousel {
-    width: 100%;
-    height: 100dvh;
+    width: 100vw;
+    height: 100vh;
     order: 3;
+    margin: 0;
+    border-radius: 0;
+  }
+  
+  .bg-slide::before{
+    display: none;
   }
 
   .overlay {
+    width: 70%;
+    transform: translateY(0);
     bottom: 10%;
+    top: auto;
     left: 5%;
   }
+
   .carousel-wrapper {
     gap: 0.8rem;
   }
@@ -1065,7 +1078,7 @@ button {
     animation: none;
     border-radius: 0;
     box-shadow: none;
-    transform: scale(1.14);
+    transform: scale(1);
     outline: none !important;
     user-select: none;
     -webkit-user-select: none;
