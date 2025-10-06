@@ -383,13 +383,17 @@ button {
   background: transparent;
 }
 
+.overlay-mobile {
+  display: none;
+}
+
 .overlay h3 {
-  font-size: 2.4rem;
+  font-size: 3.8rem;
   margin-bottom: 1rem;
 }
 
 .overlay p {
-  font-size: 1.7rem;
+  font-size: 2.4rem;
   line-height: 1.5;
 }
 
@@ -998,15 +1002,51 @@ button {
   }
 
   .bottle-carousel {
-    display: none;
+    background: none;
+    box-shadow: none;
+  }
+
+  .bottle-carousel h2 {
+    font-size: 5rem;
+    font-family: Cinzel, serif;
+  }
+
+  .bottle-slide {
+    transition: 0.4s;
+  }
+
+  .overlay-mobile {
+    display: block;
+    position: relative;
+    width: 90%;
+    max-width: none;
+    margin: 2rem auto 0 auto;
+    color: #fff;
+    text-align: center;
+    opacity: 0.95;
+    z-index: 3;
+  }
+
+  .overlay-mobile h3 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+
+  .overlay-mobile p {
+    font-size: 2rem;
+    line-height: 1.5;
+    text-align: left;
+    font-weight: 500;
+    margin-bottom: 3rem;
   }
 
   .bg-carousel {
-    width: 100vw;
-    height: 100vh;
-    order: 3;
-    margin: 0;
-    border-radius: 0;
+    display: none;
+  }
+
+  .bg-slide {
+    display: none;
   }
   
   .bg-slide::before{
@@ -1028,7 +1068,7 @@ button {
   .about {
     flex-direction: column;
     align-items: stretch;
-    text-align: left;
+    text-align: justify;
     padding: 3rem 1.6rem;
   }
 
@@ -1088,6 +1128,7 @@ button {
 
   .composition__photo--p2 {
     display: block;
+    border-radius: 2rem;
   }
   .composition__photo--p1,
   .composition__photo--p3 { display: none; }

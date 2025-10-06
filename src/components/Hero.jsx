@@ -66,17 +66,21 @@ function Hero() {
   return (
     <section className="hero">
       <div className="contacts">
-        <a href="tel:+1234567890"><FontAwesomeIcon icon={faPhone} /></a>
-        <a href="mailto:info@example.com"><FontAwesomeIcon icon={faEnvelope} /></a>
-        <a href="https://t.me/yourusername" target="_blank" rel="noopener noreferrer">
+        <a href="tel:+998903525959"><FontAwesomeIcon icon={faPhone} /></a>
+        <a href="mailto:essenzaperfumes17@gmail.com"><FontAwesomeIcon icon={faEnvelope} /></a>
+        <a href="https://t.me/essenza_perfume" target="_blank" rel="noopener noreferrer">
           <FontAwesomeIcon icon={faTelegram} />
         </a>
-        <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.instagram.com/essenza_parfumes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
           <FontAwesomeIcon icon={faInstagram} />
         </a>
       </div>
 
       <div className="bottle-carousel">
+        <div className="overlay-mobile">
+          <h3>{slides[current].title}</h3>
+          <p>{slides[current].subtitle}</p>
+        </div>
         {slides.map((slide, index) => (
           <div key={slide.id} className={`bottle-slide ${index === current ? "active" : ""}`}>
             <img src={slide.bottle} alt={slide.perfumeTitle} className="bottle-img" />
