@@ -1003,17 +1003,23 @@ button {
   }
 
   .bottle-carousel {
+    margin: 0;
     background: none;
     box-shadow: none;
   }
 
   .bottle-carousel h2 {
     font-size: 5rem;
+    margin-top: 3rem;
     font-family: Cinzel, serif;
   }
 
   .bottle-slide {
-    transition: 0.4s;
+    margin: 3rem 0;
+  }
+
+  .bottle-img {
+    height: 24rem;
   }
 
   .overlay-mobile {
