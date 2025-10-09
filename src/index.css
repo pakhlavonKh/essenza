@@ -596,7 +596,7 @@ button {
   font-size: 3.2rem;
   border: none;
   background: none;
-  color: var(--color-primary);
+  color: #f87500;
   cursor: pointer;
   transition: transform 0.2s ease, color 0.2s ease;
 }
