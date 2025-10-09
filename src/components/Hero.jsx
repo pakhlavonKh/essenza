@@ -13,7 +13,7 @@ function Hero() {
   const slides = [
     {
       id: 1,
-      bg: "../assets/bg1.webp",
+      bg: "../assets/bg1.PNG",
       bgMobile: "../assets/bg1-mobile.webp",
       bottle: "../assets/cellImage_0_9.png",
       title: t("hero.slides.1.title"),
@@ -74,6 +74,9 @@ function Hero() {
         <a href="https://www.instagram.com/essenza_parfumes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
           <FontAwesomeIcon icon={faInstagram} />
         </a>
+      </div>
+      <div className="mobile-img">
+        <img src="../public/assets/hero-mobile.PNG" alt="" />
       </div>
 
       <div className="bottle-carousel">

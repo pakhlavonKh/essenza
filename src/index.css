@@ -81,7 +81,7 @@ button {
 }
 
 .navigation__icon, .navigation__icon::before, .navigation__icon::after {
-  width: 2.8rem;
+  width: 2.2rem;
   height: 2px;
   background-color: #fff;
   display: inline-block;
@@ -268,7 +268,6 @@ button {
   --shadow-lift:   0 40px 90px rgba(0,0,0,.30);
 }
 
-/* Соц-иконки — фикс справа по центру */
 .contacts{
   position: absolute;
   right: 4.4rem;
@@ -352,7 +351,6 @@ button {
   z-index: 1;
 }
 
-/* оранжевая плашка */
 .bg-slide::before{
   content: "";
   position: absolute;
@@ -365,6 +363,10 @@ button {
   pointer-events: none;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
+}
+
+.mobile-img {
+  display: none;
 }
 
 .overlay{
@@ -636,7 +638,7 @@ button {
   margin-top: 3.5rem;
   padding: 1rem 1.5rem;
   background-color: var(--color-primary);
-  color: #fff;
+  color: #111;
   font-weight: 600;
   font-size: 2rem;
   border-radius: 12px;
@@ -764,7 +766,7 @@ button {
   padding: 0.5rem 1rem;
   font-size: 1.4rem;
   background-color: var(--color-primary);
-  color: #fff;
+  color: #111;
   border-radius: 1.2rem;
   cursor: pointer;
   border: none;
@@ -879,7 +881,7 @@ button {
 @media (max-width: 768px) {
   .header {
     display: flex;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
@@ -893,6 +895,10 @@ button {
 
   .header img {
     display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     height: 2.5rem;
     width: auto;
   }
@@ -901,8 +907,8 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 4rem;
-    width: 4rem;
+    height: 4.2rem;
+    width: 4.2rem;
     top: 1rem;
     right: 1.5rem;
     left: auto;
@@ -990,6 +996,7 @@ button {
   .hero {
     display: flex;
     flex-direction: column;
+    background-size: cover;
     margin-top: 6rem;
     height: calc(100vh - 6rem);
   }
@@ -1004,6 +1011,7 @@ button {
 
   .bottle-carousel {
     margin: 0;
+    display: none;
     background: none;
     box-shadow: none;
   }

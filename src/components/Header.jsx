@@ -87,7 +87,7 @@ function Header() {
 
       <Link to="/" className="header-logo-link">
         <img
-          src="/assets/essenza_white.png"
+          src="/assets/essenza_black.png"
           alt="logo"
           className="header-logo"
         />
