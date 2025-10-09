@@ -9,7 +9,7 @@
   line-height: 1.5;
   font-weight: 400;
   background-color: #ffffff;
-  --color-primary:#F87500;
+  --color-primary:#f9f9f9;
   --hero-strip-h: 10rem;
     /* ширина левой колонки */
   --hero-left-col: 26%;
@@ -53,8 +53,9 @@ button {
   padding: 1.5rem 4rem;
   height: 8rem;
   background-color: var(--color-primary);
-  color: #fff;
+  color: #000;
 }
+
 
 .navigation__checkbox {
   display: none;
@@ -64,7 +65,7 @@ button {
   border: none;
   display: none;
   border-radius: 0;
-  background-color: transparent;
+  background-color: #f9f9f9;
   height: 3.5rem;
   width: 3.5rem;
   position: fixed;
@@ -83,7 +84,7 @@ button {
 .navigation__icon, .navigation__icon::before, .navigation__icon::after {
   width: 2.2rem;
   height: 2px;
-  background-color: #fff;
+  background-color: #000;
   display: inline-block;
 }
 
@@ -92,6 +93,7 @@ button {
   position: absolute;
   left: 0;
   transition: all 0.2s;
+  background-color: #000;
 }
 
 .navigation__icon::before {
@@ -124,7 +126,7 @@ button {
   position: fixed;
   top: 2rem;
   right: 2rem;
-  background-image: radial-gradient(#F87500, #ff9d4d);
+  background-image: radial-gradient(#f9f9f9, #f9f9f9);
   z-index: 1000;
   transition: transform 0.8s cubic-bezier(0.86, 0, 0.25, 1);
 }
@@ -162,7 +164,7 @@ button {
   font-size: 2rem;
   position: relative;
   opacity: 0.9;
-  color: #fff;
+  color: #000;
   transition: opacity 0.3s ease, border-bottom 0.3s ease;
   border-bottom: 2px solid transparent;
 }
@@ -199,8 +201,8 @@ button {
 }
 
 .lang-button {
-  background-color: #fff;
-  color: var(--color-primary);
+  background-color: #000;
+  color: #fff;
   border: none;
   padding: 0.5rem 1rem;
   position: absolute;
@@ -260,7 +262,7 @@ button {
   grid-template-columns: minmax(28rem, var(--hero-left-col)) 1fr;
   height: calc(100vh - 8rem);
   width: 100%;
-  background: var(--color-primary);
+  background: #fff;
   position: relative;
   overflow: hidden;
   --lift: 6px;
@@ -286,6 +288,8 @@ button {
   text-decoration: none;
 }
 
+
+/* изменял */
 .bottle-carousel{
   display: flex;
   flex-direction: column;
@@ -294,7 +298,9 @@ button {
   margin: 3rem 0rem 3rem 2rem;
   border-radius: 1rem;
   background: #fff;
-  box-shadow: 0 200px 140px -10px rgba(0.35, 0.35, 0.35, 0.35);
+  box-shadow:
+  0 0 60px rgba(0, 0, 0, 0.12),
+  0 0 20px rgba(0, 0, 0, 0.08);
   height: 85%;
 }
 
@@ -311,6 +317,7 @@ button {
   opacity: 1;
   transform: translateX(0);
   position: relative;
+  margin-bottom: 0.2rem;
 }
 
 .bottle-img{
@@ -331,7 +338,9 @@ button {
   margin: 3rem 2rem 3rem 2.4rem; 
   border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 200px 140px -10px rgba(0.35, 0.35, 0.35, 0.35);
+  box-shadow:
+  0 0 60px rgba(0, 0, 0, 0.12),
+  0 0 20px rgba(0, 0, 0, 0.08);
   height: 85%;
 }
 
@@ -376,7 +385,7 @@ button {
   transform: translateY(-50%);
   width: calc(var(--hero-slab) - 8rem);
   max-width: 64rem;
-  color: #fff;
+  color: #000;
   opacity: .90;
   z-index: 3;
   display: flex;
@@ -785,7 +794,7 @@ button {
 
 .footer {
   background: var(--color-primary);
-  color: #fff;
+  color: #000;
   padding: 3rem 4rem 0 4rem;
   display: flex;
   justify-content: center;
@@ -798,7 +807,7 @@ button {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
   font-weight: 600;
-  color: var(--color-accent);
+  color: #000;
 }
 
 .footer-contacts {
@@ -851,13 +860,13 @@ button {
 .made {
   text-align: center;
   font-size: 1.5rem;
-  color: #fff;
+  color: #000;
   margin-bottom: 1rem;
   font-family: 'Arial', sans-serif;
 }
 
 .made a {
-  color: #fff;
+  color: #000;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -887,7 +896,7 @@ button {
     width: 100vw;
     height: 6rem;
     padding: 1.5rem 2rem;
-    background-color: var(--color-primary);
+    background-color: #f9f9f9;
     z-index: 20;
     align-items: center;
     justify-content: space-between;
@@ -914,7 +923,7 @@ button {
     left: auto;
     position: fixed;
     z-index: 2001;
-    background-color: var(--color-primary);
+    background-color: #f9f9f9;
   }
 
   
@@ -958,7 +967,7 @@ button {
       text-decoration: none;
       font-weight: 600;
       position: relative;
-      color: #fff; 
+      color: #000; 
       font-size: 3rem;
   }
   
@@ -999,6 +1008,7 @@ button {
     background-size: cover;
     margin-top: 6rem;
     height: calc(100vh - 6rem);
+    /* padding-top: 10rem; */
   }
 
   .hero-mobile-heading {
@@ -1018,7 +1028,7 @@ button {
 
   .bottle-carousel h2 {
     font-size: 5rem;
-    margin-top: 3rem;
+    margin-top: 2rem;
     font-family: Cinzel, serif;
   }
 
@@ -1030,32 +1040,33 @@ button {
     height: 24rem;
   }
 
+  /* изменил */
   .overlay-mobile {
-    display: block;
-    position: relative;
-    width: 90%;
-    max-width: none;
-    margin: 2rem auto 0 auto;
-    color: #fff;
-    text-align: center;
-    opacity: 0.95;
-    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 10rem;
+    color: #000;
   }
 
   .overlay-mobile h3 {
-    margin-top: 4rem;
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    text-align: left;
+    margin: 0 0 3rem 0;
+    font-size: 6rem;
+    text-align: center;
+    line-height: 1;
+    font-weight: 450;
   }
 
   .overlay-mobile p {
+    margin: 0 0 1rem 0;
     font-size: 2rem;
     line-height: 1.5;
-    text-align: left;
+    text-align: center;
     font-weight: 500;
-    margin-bottom: 3rem;
   }
+/* закончил */
 
   .bg-carousel {
     display: none;
