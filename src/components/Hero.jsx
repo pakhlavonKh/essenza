@@ -10,6 +10,8 @@ function Hero() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const timerRef = useRef(null);
 
+  const hero_img = "../assets/hero-mobile.PNG";
+
   const slides = [
     {
       id: 1,
@@ -88,7 +90,7 @@ function Hero() {
           </div>
         ))}
       <div className="mobile-img">
-        <img src="../public/assets/hero-mobile.PNG" alt="" />
+        <img src={hero_img} alt="" />
       </div>
       </div>
 
