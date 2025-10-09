@@ -126,7 +126,7 @@ button {
   position: fixed;
   top: 2rem;
   right: 2rem;
-  background-image: radial-gradient(#f9f9f9, #f9f9f9);
+  background-image: radial-gradient(#F87500, #FA7C30);
   z-index: 1000;
   transition: transform 0.8s cubic-bezier(0.86, 0, 0.25, 1);
 }
@@ -201,8 +201,8 @@ button {
 }
 
 .lang-button {
-  background-color: #000;
-  color: #fff;
+  background-color: #fff;
+  color: #F87500;
   border: none;
   padding: 0.5rem 1rem;
   position: absolute;
@@ -926,6 +926,14 @@ button {
     background-color: #f9f9f9;
   }
 
+  .navigation__button.colored {
+    background-color: #F87500;
+  }
+
+  .navigation__icon.colored, .navigation__icon.colored::before, .navigation__icon.colored::after {
+    background-color: #fff;
+  }
+
   
   .navigation__background {
     display: block;
@@ -967,7 +975,7 @@ button {
       text-decoration: none;
       font-weight: 600;
       position: relative;
-      color: #000; 
+      color: #fff; 
       font-size: 3rem;
   }
   
@@ -1021,7 +1029,6 @@ button {
 
   .bottle-carousel {
     margin: 0;
-    display: none;
     background: none;
     box-shadow: none;
   }
@@ -1033,14 +1040,25 @@ button {
   }
 
   .bottle-slide {
+    display: none;
     margin: 3rem 0;
+  }
+
+  .mobile-img {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .mobile-img img{
+    width: 100%;
+    border-radius: 2rem;
   }
 
   .bottle-img {
     height: 24rem;
   }
 
-  /* изменил */
   .overlay-mobile {
     display: flex;
     flex-direction: column;
@@ -1066,7 +1084,6 @@ button {
     text-align: center;
     font-weight: 500;
   }
-/* закончил */
 
   .bg-carousel {
     display: none;

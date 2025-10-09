@@ -75,9 +75,6 @@ function Hero() {
           <FontAwesomeIcon icon={faInstagram} />
         </a>
       </div>
-      <div className="mobile-img">
-        <img src="../public/assets/hero-mobile.PNG" alt="" />
-      </div>
 
       <div className="bottle-carousel">
         <div className="overlay-mobile">
@@ -90,6 +87,9 @@ function Hero() {
             <h2 className="bottle-title">{slide.perfumeTitle}</h2>
           </div>
         ))}
+      <div className="mobile-img">
+        <img src="../public/assets/hero-mobile.PNG" alt="" />
+      </div>
       </div>
 
       <div className="bg-carousel">

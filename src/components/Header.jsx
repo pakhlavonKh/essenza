@@ -7,27 +7,54 @@ function Header() {
   const { t } = useTranslation();
   const [isFixed, setIsFixed] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isColored, setIsColored] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScrollDesktop = () => {
       const scrollY = window.scrollY;
-      console.log("Scroll event fired, scrollY:", scrollY);
       const hero = document.querySelector(".hero");
       if (!hero) {
         setIsFixed(scrollY > 100);
         return;
       }
       const rect = hero.getBoundingClientRect();
-      console.log("Hero - top:", rect.top, "bottom:", rect.bottom, "height:", rect.height);
       setIsFixed(rect.bottom <= 0);
     };
 
-    console.log("Adding scroll event listener");
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); 
+    const handleScrollMobile = () => {
+      const header = document.querySelector("header");
+    console.log("⚠️ No <header> element found!");
+      if (!header) return;
+
+      const rect = header.getBoundingClientRect();console.log(
+    "Header rect:",
+    "top =", rect.top,
+    "bottom =", rect.bottom,
+    "height =", rect.height,
+    "scrollY =", window.scrollY
+  );
+      if (rect.bottom < 0) {
+    console.log("👉 Header is out of view → setting colored = true");
+        setIsColored(true);
+      } else {
+        setIsColored(false);
+      }
+    };
+
+    const onScroll = () => {
+      if (window.innerWidth > 768) {
+        handleScrollDesktop();
+      } else {
+        handleScrollMobile();
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll(); // run once
+
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", onScroll);
     };
   }, []);
 
@@ -58,10 +85,11 @@ function Header() {
       />
       <label
         htmlFor="nav-toggle"
-        className="navigation__button"
+        className={`navigation__button ${isColored ? "colored": ""} `}
         aria-label="Toggle menu"
+        
       >
-        <span className="navigation__icon" />
+        <span className={`navigation__icon ${isColored ? "colored": ""} `} />
       </label>
       <div className="navigation__background">&nbsp;</div>
         <nav className="mobile-navigation">
