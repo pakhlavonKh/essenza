@@ -17,7 +17,7 @@
   --hero-gap: 0rem;
   --hero-card-h: 30rem;
   /* ширина оранжевой плашки */
-  --hero-slab: 40%;
+  --hero-slab: 45%;
   --hero-slab-color: color-mix(in srgb, var(--color-primary) 92%, white 8%);
 }
 
@@ -347,17 +347,10 @@ button {
 .bg-slide{
   position: absolute;
   inset: 0;
-  background-size: cover;
-  background-position: var(--hero-bg-pos-x) center;
-  opacity: 0;
-  transform: translateX(-50px);
-  transition: opacity 1s ease, transform 1s ease;
-  z-index: 0;
-}
-.bg-slide.active{
-  opacity: 1;
-  transform: translateX(0);
-  z-index: 1;
+  background-size: contain;
+  /* background-repeat: ; */
+  /* background-position: var(--hero-bg-pos-x) center; */
+  background-position: right center;
 }
 
 .bg-slide::before{

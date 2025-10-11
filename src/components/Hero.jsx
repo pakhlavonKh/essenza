@@ -7,47 +7,33 @@ import { useTranslation } from "react-i18next";
 function Hero() {
   const { t } = useTranslation();
   const [current, setCurrent] = useState(0);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  // const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const timerRef = useRef(null);
 
   const hero_img = "../assets/hero-mobile.PNG";
 
+  const hero_bg = "../assets/bg1.PNG";
+
   const slides = [
     {
       id: 1,
-      bg: "../assets/bg1.PNG",
-      bgMobile: "../assets/bg1-mobile.webp",
       bottle: "../assets/cellImage_0_9.png",
-      title: t("hero.slides.1.title"),
       perfumeTitle:"Tom Ford",
-      subtitle: t("hero.slides.1.subtitle"),
     },
     {
       id: 2,
-      bg: "../assets/bg2.webp",
-      bgMobile: "../assets/bg2-mobile.webp",
       bottle: "../assets/cellImage_0_23.png",
-      title: t("hero.slides.2.title"),
       perfumeTitle:"Creed",
-      subtitle: t("hero.slides.2.subtitle"),
     },
     {
       id: 3,
-      bg: "../assets/bg3.webp",
-      bgMobile: "../assets/bg3-mobile.webp",
       bottle: "../assets/cellImage_0_81.png",
-      title: t("hero.slides.3.title"),
       perfumeTitle:"Bvlgari",
-      subtitle: t("hero.slides.3.subtitle"),
     },
     {
       id: 4,
-      bg: "../assets/bg4.webp",
-      bgMobile: "../assets/bg4-mobile.webp",
       bottle: "../assets/cellImage_0_2.png",
-      title: t("hero.slides.4.title"),
       perfumeTitle:"Chanel",
-      subtitle: t("hero.slides.4.subtitle"),
     },
   ];
 
@@ -59,11 +45,11 @@ function Hero() {
     return () => clearInterval(timerRef.current);
   }, [slides.length]);
 
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  // useEffect(() => {
+  //   const handleResize = () => setIsMobile(window.innerWidth <= 768);
+  //   window.addEventListener("resize", handleResize);
+  //   return () => window.removeEventListener("resize", handleResize);
+  // }, []);
 
   return (
     <section className="hero">
@@ -95,18 +81,15 @@ function Hero() {
       </div>
 
       <div className="bg-carousel">
-        {slides.map((slide, index) => (
           <div
-            key={slide.id}
-            className={`bg-slide ${index === current ? "active" : ""}`}
-            style={{ backgroundImage: `url(${isMobile ? slide.bgMobile : slide.bg})` }}
+            className="bg-slide" 
+            style={{ backgroundImage: `url(${hero_bg})`  }}
           >
             <div className="overlay">
-              <h3>{slide.title}</h3>
-              <p>{slide.subtitle}</p>
+              <h3>{t("heroTitle")}</h3>
+              <p>{t("heroSubtitle")}</p>
             </div>
           </div>
-        ))}
       </div>
     </section>
   );

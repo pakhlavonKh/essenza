@@ -3,26 +3,8 @@
   "aboutUs": "About Us",
   "catalogNav": "Catalog",
   "contact": "Contact",
-  "hero": {
-    "slides": {
-      "1": {
-        "title": "Wholesale Perfume Supplies",
-        "subtitle": "Direct supplies from European manufacturers."
-      },
-      "2": {
-        "title": "Wholesale Perfume Supplies",
-        "subtitle": "Direct supplies from European manufacturers."
-      },
-      "3": {
-        "title": "Wholesale Perfume Supplies",
-        "subtitle": "Direct supplies from European manufacturers."
-      },
-      "4": {
-        "title": "Wholesale Perfume Supplies",
-        "subtitle": "Direct supplies from European manufacturers."
-      }
-    }
-  },
+  "heroTitle": "Wholesale Perfume Supplies",
+  "heroSubtitle": "Direct supplies from European manufacturers.",
 
   "about": {
     "title": "About Us",

@@ -3,26 +3,8 @@
   "aboutUs": "Biz haqimizda",
   "catalogNav": "Katalog",
   "contact": "Aloqa",
-  "hero": {
-    "slides": {
-      "1": {
-        "title": "Parfumeriya ulgurji yetkazib berish",
-        "subtitle": "Yevropa ishlab chiqaruvchilardan to‘g‘ridan-to‘g‘ri yetkazib berish."
-      },
-      "2": {
-        "title": "Parfumeriya ulgurji yetkazib berish",
-        "subtitle": "Yevropa ishlab chiqaruvchilardan to‘g‘ridan-to‘g‘ri yetkazib berish."
-      },
-      "3": {
-        "title": "Parfumeriya ulgurji yetkazib berish",
-        "subtitle": "Yevropa ishlab chiqaruvchilardan to‘g‘ridan-to‘g‘ri yetkazib berish."
-      },
-      "4": {
-        "title": "Parfumeriya ulgurji yetkazib berish",
-        "subtitle": "Yevropa ishlab chiqaruvchilardan to‘g‘ridan-to‘g‘ri yetkazib berish."
-      }
-    }
-  },
+  "heroTitle": "Parfumeriya ulgurji yetkazib berish",
+  "heroSubtitle": "Yevropa ishlab chiqaruvchilardan to‘g‘ridan-to‘g‘ri yetkazib berish.",
 
   "about": {
     "title": "Biz haqimizda",
